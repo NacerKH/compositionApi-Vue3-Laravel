@@ -18,10 +18,10 @@ class TrackFactory extends Factory
     {
         return [
             'title'=>$this->faker->title(),
-            'description'=>$this->faker->title(),
-            'image'=>$this->faker->title(),
-            'audio'=>$this->faker->title(),
-            'audio'=>rand(0,1),
+            'description'=>$this->faker->paragraph($nbSentences = 3, $variableNbSentences = true),
+            'image'=>$this->faker->imageUrl($width = 640, $height = 480, 'cats', true, 'Faker'),
+            'audio'=>$this->faker->paragraph($nbSentences = 3, $variableNbSentences = true),
+            'is_favourite'=>rand(0,1),
         ];
     }
 }
