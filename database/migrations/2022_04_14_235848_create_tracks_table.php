@@ -15,6 +15,12 @@ return new class extends Migration
     {
         Schema::create('tracks', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->string('description');
+            $table->string('image');
+            $table->string('audio');
+            $table->boolean('is_favourite')->default(false);
+
             $table->timestamps();
         });
     }

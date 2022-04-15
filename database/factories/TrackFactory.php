@@ -17,7 +17,11 @@ class TrackFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'title'=>$this->faker->title(),
+            'description'=>$this->faker->title(),
+            'image'=>$this->faker->title(),
+            'audio'=>$this->faker->title(),
+            'audio'=>rand(0,1),
         ];
     }
 }
