@@ -5,7 +5,7 @@ export default function useTracks(){
 
 
     const getTracks= async() => {
-        let reponse = await axios('api/Tracks');
+        let reponse = await axios('/api/Tracks');
         tracks.value=reponse;
     };
     return {
