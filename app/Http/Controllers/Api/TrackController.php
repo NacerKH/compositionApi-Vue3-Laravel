@@ -17,7 +17,7 @@ class TrackController extends Controller
      */
     public function index():AnonymousResourceCollection
     {
-        return TrackResource::collection(Track::all());
+        return TrackResource::collection(Track::OrderBy('created_at','DESC')->paginate(3));
     }
 
     /**
