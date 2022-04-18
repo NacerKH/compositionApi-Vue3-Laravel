@@ -21,7 +21,9 @@
         "tailwindcss": "^3.0.18"
     },
     "dependencies": {
+        "@heroicons/vue": "^1.0.6",
         "@tailwindcss/line-clamp": "^0.3.1",
+        "v-pagination-3": "^0.1.7",
         "vue": "^3.2.31",
         "vue-loader": "^17.0.0",
         "vue-router": "^4.0.13"
