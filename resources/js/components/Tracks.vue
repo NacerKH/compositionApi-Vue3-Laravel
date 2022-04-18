@@ -1,4 +1,11 @@
 <template>
+<div class="flex justify-end">
+<div class=" flex ">
+    <router-link  :to="{name:'tracks.create'}" class="bg-orange-400 hover:bg-orange-100 hover:text-black rounded py-1 px-1 mb-4 text-white ">Create Track </router-link>
+</div>
+
+</div>
+
   <div class="mx-auto">
     <div class="flex flex-col">
       <div class="overflow-x-auto shadow-md sm:rounded-lg">
