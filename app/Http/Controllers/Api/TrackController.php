@@ -28,7 +28,22 @@ class TrackController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         $request->validate(
+             [
+                 'title'=>'required',
+                 'description'=>'required',
+                //  'image'=>'required',
+                //  'audio'=>'required',
+                 'is_favourite'=>'required',
+             ]
+             );
+        Track::create([
+            'title'=>$request->title,
+            'description'=>$request->description,
+            'image'=>$request->image,
+            'audio'=>$request->audio,
+            'is_favourite'=>$request->is_favourite,
+        ]);
     }
 
     /**

@@ -2,23 +2,61 @@
 
 namespace Tests\Feature;
 
+use App\Models\Track;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class TrackControllerTest extends TestCase
 {
-    /**
+     use RefreshDatabase;
+
+     /**
      * @test
      */
     public function itListsTracks()
     {
+         $this->seed();
         $response = $this->get('/api/Tracks');
 
         $response->assertOk();
-         $this->assertCount(10,$response->json('data'));
-        // dd($response->json('data'));
+         $this->assertCount(3,$response->json('data'));
+        //  dd($response->json('data'));
          $this->assertNotNull($response->json('data')[0]['audio']);
         $this->assertIsBool($response->json('data')[0]['is_favourite']);
+    }
+
+     /**
+     * @test
+     */
+    public function itCreateTracks(){
+        $response= $this->post('/api/Tracks',[
+            'title'=> 'alain khalifa',
+            'description'=> 'description testing',
+            'image'=> 'kali for test image',
+            'audio'=> 'kali for test audio',
+            'is_favourite'=>true,
+        ]);
+        $tracks=Track::all();
+        $track=Track::first();
+        $response->assertOk();
+        $this->assertEquals(1, $tracks->count());
+        $this->assertEquals('alain khalifa',$track->title);
+    }
+      /**
+     * @test
+     */
+    public function itValidatesFields()
+    {
+        $response= $this->post('/api/Tracks',[
+            'title'=> '',
+            'description'=> '',
+            'image'=> '',
+            'audio'=> '',
+            'is_favourite'=>'',
+        ]);
+        $response->assertSessionHasErrors(['title','description','is_favourite']);
+
+
     }
 }

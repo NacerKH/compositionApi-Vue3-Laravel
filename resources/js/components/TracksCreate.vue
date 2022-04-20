@@ -67,6 +67,7 @@ import { MusicNoteIcon, PhotographIcon, CheckCircleIcon,DocumentTextIcon, HeartI
 import {reactive, ref} from "vue"
 import useTracks from "../services/trackservices";
 import axios from 'axios';
+import router from '../router/index.js'
 
 export default {
 
@@ -85,13 +86,13 @@ export default {
 
 
     const { createTracks ,imageFile, imageUrl, handleImageSelected} = useTracks();
-    let data = new FormData();
-        data.append("image", imageFile.value);
-    form.image=data;
+    // let data = new FormData();
+        // data.append("image", imageFile.value);
+    // form.image=data;
 
     const storeTrack=async ()=>{
-        // await createTracks({...form});
-        // router.push({name:'tracks.index'})
+        await createTracks({...form});
+        router.push({name:'tracks.index'})
         console.log({...form.image.value});
         console.log(imageFile.value.name);
         // await createTracks();

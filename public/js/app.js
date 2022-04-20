@@ -24598,15 +24598,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _heroicons_vue_solid__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @heroicons/vue/solid */ "./node_modules/@heroicons/vue/solid/esm/MusicNoteIcon.js");
-/* harmony import */ var _heroicons_vue_solid__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @heroicons/vue/solid */ "./node_modules/@heroicons/vue/solid/esm/PhotographIcon.js");
-/* harmony import */ var _heroicons_vue_solid__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @heroicons/vue/solid */ "./node_modules/@heroicons/vue/solid/esm/CheckCircleIcon.js");
-/* harmony import */ var _heroicons_vue_solid__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @heroicons/vue/solid */ "./node_modules/@heroicons/vue/solid/esm/DocumentTextIcon.js");
-/* harmony import */ var _heroicons_vue_solid__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @heroicons/vue/solid */ "./node_modules/@heroicons/vue/solid/esm/HeartIcon.js");
+/* harmony import */ var _heroicons_vue_solid__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @heroicons/vue/solid */ "./node_modules/@heroicons/vue/solid/esm/MusicNoteIcon.js");
+/* harmony import */ var _heroicons_vue_solid__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @heroicons/vue/solid */ "./node_modules/@heroicons/vue/solid/esm/PhotographIcon.js");
+/* harmony import */ var _heroicons_vue_solid__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @heroicons/vue/solid */ "./node_modules/@heroicons/vue/solid/esm/CheckCircleIcon.js");
+/* harmony import */ var _heroicons_vue_solid__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @heroicons/vue/solid */ "./node_modules/@heroicons/vue/solid/esm/DocumentTextIcon.js");
+/* harmony import */ var _heroicons_vue_solid__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @heroicons/vue/solid */ "./node_modules/@heroicons/vue/solid/esm/HeartIcon.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 /* harmony import */ var _services_trackservices__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/trackservices */ "./resources/js/services/trackservices.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _router_index_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../router/index.js */ "./resources/js/router/index.js");
 
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
@@ -24623,13 +24624,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
-    MusicNoteIcon: _heroicons_vue_solid__WEBPACK_IMPORTED_MODULE_4__["default"],
-    PhotographIcon: _heroicons_vue_solid__WEBPACK_IMPORTED_MODULE_5__["default"],
-    CheckCircleIcon: _heroicons_vue_solid__WEBPACK_IMPORTED_MODULE_6__["default"],
-    DocumentTextIcon: _heroicons_vue_solid__WEBPACK_IMPORTED_MODULE_7__["default"],
-    HeartIcon: _heroicons_vue_solid__WEBPACK_IMPORTED_MODULE_8__["default"]
+    MusicNoteIcon: _heroicons_vue_solid__WEBPACK_IMPORTED_MODULE_5__["default"],
+    PhotographIcon: _heroicons_vue_solid__WEBPACK_IMPORTED_MODULE_6__["default"],
+    CheckCircleIcon: _heroicons_vue_solid__WEBPACK_IMPORTED_MODULE_7__["default"],
+    DocumentTextIcon: _heroicons_vue_solid__WEBPACK_IMPORTED_MODULE_8__["default"],
+    HeartIcon: _heroicons_vue_solid__WEBPACK_IMPORTED_MODULE_9__["default"]
   },
   setup: function setup() {
     var message = (0,vue__WEBPACK_IMPORTED_MODULE_1__.ref)("");
@@ -24646,11 +24648,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         createTracks = _useTracks.createTracks,
         imageFile = _useTracks.imageFile,
         imageUrl = _useTracks.imageUrl,
-        handleImageSelected = _useTracks.handleImageSelected;
+        handleImageSelected = _useTracks.handleImageSelected; // let data = new FormData();
+    // data.append("image", imageFile.value);
+    // form.image=data;
 
-    var data = new FormData();
-    data.append("image", imageFile.value);
-    form.image = data;
 
     var storeTrack = /*#__PURE__*/function () {
       var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
@@ -24658,12 +24659,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                // await createTracks({...form});
-                // router.push({name:'tracks.index'})
+                _context.next = 2;
+                return createTracks(_objectSpread({}, form));
+
+              case 2:
+                _router_index_js__WEBPACK_IMPORTED_MODULE_4__["default"].push({
+                  name: 'tracks.index'
+                });
                 console.log(_objectSpread({}, form.image.value));
                 console.log(imageFile.value.name); // await createTracks();
 
-              case 2:
+              case 5:
               case "end":
                 return _context.stop();
             }

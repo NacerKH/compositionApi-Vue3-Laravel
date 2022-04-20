@@ -277,6 +277,8 @@
 import { onMounted } from "vue";
 import useTracks from "../services/trackservices";
 import { MusicNoteIcon, PhotographIcon, CheckCircleIcon,DocumentTextIcon, HeartIcon} from "@heroicons/vue/solid";
+
+
 export default {
   components: {MusicNoteIcon,PhotographIcon,CheckCircleIcon,DocumentTextIcon, HeartIcon},
       setup() {  //composition Api  less code in component
