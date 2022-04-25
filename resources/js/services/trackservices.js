@@ -1,7 +1,10 @@
 import axios from "axios";
 import { ref, watch } from "vue";
+import router from '../router/index.js'
+
 export default function useTracks(){
     const tracks =ref([]);
+    const errors =ref('');
     let imageFile = ref("");
     let imageUrl = ref("");
 
@@ -11,12 +14,18 @@ export default function useTracks(){
 
     };
     const createTracks= async(data) => {
-         await axios.post('/api/Tracks',data);
+        errors.value = ''
+        try {
+            await axios.post('/api/Tracks',data);
+            await   router.push({name:'tracks.index'})
+        }catch (e)
+        {
+              if (e.response.status === 422) {
 
-
-    };
-
-
+                        errors.value = e.response.data.errors;
+                    };
+        };
+    }
     function handleImageSelected(event) {
       if (event.target.files.length === 0) {
         imageFile.value = "";
@@ -50,5 +59,7 @@ export default function useTracks(){
         imageFile,
         imageUrl,
         handleImageSelected,
+        errors,
+
     }
 }
