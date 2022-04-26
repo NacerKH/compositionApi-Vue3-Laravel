@@ -5,8 +5,19 @@ import router from '../router/index.js'
 export default function useTracks(){
     const tracks =ref([]);
     const errors =ref('');
+    const track=ref([]);
     let imageFile = ref("");
     let imageUrl = ref("");
+
+    const getTrack= async(id) => {
+
+        console.log(id);
+
+        let response = await axios.get('/api/Tracks/' + id );
+        track.value=response.data.data;
+        console.log(response);
+
+    };
 
     const getTracks= async(page = 1) => {
         let response = await axios('/api/Tracks?page=' + page);
@@ -25,7 +36,21 @@ export default function useTracks(){
                         errors.value = e.response.data.errors;
                     };
         };
-    }
+    };
+    const editTrack= async(data) => {
+        errors.value = ''
+        try {
+            await axios.post('/api/Tracks',data);
+            await   router.push({name:'tracks.index'})
+        }catch (e)
+        {
+              if (e.response.status === 422) {
+
+                        errors.value = e.response.data.errors;
+                    };
+        };
+    };
+
     function handleImageSelected(event) {
       if (event.target.files.length === 0) {
         imageFile.value = "";
@@ -34,7 +59,7 @@ export default function useTracks(){
       }
 
       imageFile.value = event.target.files[0];
-      console.log(imageFile.value.name);
+   
     }
 
     watch(imageFile, (imageFile) => {
@@ -60,6 +85,10 @@ export default function useTracks(){
         imageUrl,
         handleImageSelected,
         errors,
+        track,
+        editTrack,
+        getTrack,
+
 
     }
 }

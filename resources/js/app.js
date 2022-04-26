@@ -10,6 +10,7 @@ import { createApp } from 'vue';
 import router from './router';
 import TrackIndex from './components/Tracks.vue';
 import TracksCreate from './components/TracksCreate.vue';
+import TracksEdit from './components/TracksEdit.vue';
 import LaravelVuePagination from 'laravel-vue-pagination';
 
 createApp({
@@ -17,6 +18,7 @@ createApp({
         TrackIndex,
           'Pagination': LaravelVuePagination,
           TracksCreate,
+          TracksEdit
     }
 })
 .use(router)

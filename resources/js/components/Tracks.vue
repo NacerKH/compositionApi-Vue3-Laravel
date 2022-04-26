@@ -249,11 +249,13 @@
                         whitespace-wrap
                       "
                     >
+    <router-link  :to="{name:'tracks.edit',params:{id:track.id}}" class="bg-orange-400  hover:underline hover:bg-orange-700 hover:text-black rounded py-1 px-1 mb-4 text-white ">Edit</router-link>
+<!--
                       <a
                         href="#"
                         class="text-blue-600 dark:text-blue-500 hover:underline"
-                        >Edit</a
-                      >
+                        >Edit</a -->
+
                     </td>
                   </tr>
                 </template>

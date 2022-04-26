@@ -5,9 +5,12 @@
             :key="k"
             class="bg-red-500 text-white rounded font-bold mb-4 shadow-lg py-2 px-4 pr-0"
         >
-            <p v-for="error in field" :key="error" class="text-sm" v-text="error">
-
-            </p>
+            <p
+                v-for="error in field"
+                :key="error"
+                class="text-sm"
+                v-text="error"
+            ></p>
         </div>
     </div>
     <div
@@ -25,7 +28,7 @@
     <form
         action=""
         class="bg-orange-200 hover:bg-orange-300 rounded space-y-6"
-        @submit.prevent="storeTrack"
+        @submit.prevent="updateTrack"
     >
         <div class="flex flex-col">
             <div
@@ -36,10 +39,9 @@
                     type="text"
                     id="title"
                     class="md:w-64 sm:w-32 rounded"
-                    v-model="form.title"
+                    v-model="track.title"
                     placeholder="Title here .."
                 />
-
             </div>
             <div
                 class="flex text-orange-500 m-2 flex-wrap inline-flex items-center"
@@ -49,7 +51,7 @@
                     type="text"
                     id="description"
                     class="md:w-64 sm:w-32 rounded"
-                    v-model="form.description"
+                    v-model="track.description"
                     placeholder="description here .."
                 />
             </div>
@@ -73,6 +75,11 @@
                 <div
                     class="flex flex-1 justify-center items-center inline-flex"
                 >
+                    <img v-if="imageUrl==''"
+
+                        :src="track.image"
+                        class="w-30 h-20 object-contain"
+                    />
                     <img
                         v-show="imageUrl"
                         :src="imageUrl"
@@ -101,7 +108,7 @@
                         type="checkbox"
                         id="is_favourite"
                         class="flex justify-end rounded form-checkbox h-5 w-5 text-gray-600"
-                        v-model="form.is_favourite"
+                        v-model="track.is_favourite"
                     />
                 </div>
             </div>
@@ -109,7 +116,7 @@
                 <button
                     class="py-1 px-2 bg-orange-400 hover:bg-orange-300 rounded text-white hover:text-black"
                 >
-                    Add Track
+                    Update Track
                 </button>
             </div>
         </div>
@@ -125,6 +132,7 @@ import {
     HeartIcon,
 } from "@heroicons/vue/solid";
 import { reactive, ref } from "vue";
+import { onMounted} from "vue";
 import useTracks from "../services/trackservices";
 
 export default {
@@ -135,40 +143,37 @@ export default {
         DocumentTextIcon,
         HeartIcon,
     },
-    setup() {
-    
+    props:{
+        id:{
+            required:true,
+            type:String
+        }
+    },
+    setup(props) {
+        let message = ref("");
         let images = ref([]);
-        const form = reactive({
-            title: "",
-            description: "",
-            image: "",
-            audio: "",
-            is_favourite: "",
-        });
 
         const {
-            createTracks,
+            getTrack,
+            editTrack,
+            track,
             imageFile,
             imageUrl,
             handleImageSelected,
             errors,
         } = useTracks();
-        // let data = new FormData();
-        // data.append("image", imageFile.value);
-        // form.image=data;
+    onMounted(getTrack(props.id));
+        const updateTrack = async() => {
+            await editTrack(props.id);
 
-        const storeTrack = async () => {
-            await createTracks({ ...form });
-            console.log({ ...form.image.value });
-            console.log(imageFile.value.name);
-            // await createTracks();
         };
         return {
-            form,
-            storeTrack,
+            getTrack,
+            track,
+            editTrack,
             handleImageSelected,
             imageUrl,
-
+            message,
             images,
             errors,
         };

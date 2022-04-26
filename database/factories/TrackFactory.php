@@ -20,7 +20,7 @@ class TrackFactory extends Factory
             'title'=>$this->faker->title(),
             'description'=>$this->faker->paragraph($nbSentences = 3, $variableNbSentences = true),
             'image'=>$this->faker->imageUrl($width = 640, $height = 480, 'cats', true, 'Faker'),
-            'audio'=>$this->faker->paragraph($nbSentences = 3, $variableNbSentences = true),
+            'audio'=>$this->faker->text($maxNbChars = 50),
             'is_favourite'=>rand(0,1),
         ];
     }

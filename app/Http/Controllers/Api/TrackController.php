@@ -52,9 +52,10 @@ class TrackController extends Controller
      * @param  \App\Models\Track  $track
      * @return \Illuminate\Http\Response
      */
-    public function show(Track $track)
-    {
-        //
+    public function show(Track $track,$id)
+    {      $track=Track::find($id);
+        return TrackResource::make($track);
+
     }
 
     /**
