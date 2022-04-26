@@ -60,6 +60,12 @@ export default function useTracks() {
             };
         };
     };
+    const destroyTrack= async(id)=>{
+
+        if(! window.confirm('Are u sure !'))return;
+        await axios.delete('/api/Tracks/'+ id);
+        await getTracks();
+    }
 
     function handleImageSelected(event) {
         if (event.target.files.length === 0) {
@@ -98,8 +104,8 @@ export default function useTracks() {
         track,
         editTrack,
         getTrack,
-        UpdateTracks
-
+        UpdateTracks,
+        destroyTrack
 
     }
 }

@@ -81,8 +81,21 @@ class TrackControllerTest extends TestCase
             'is_favourite'=>false,
         ]);
         $updateTrack=Track::find($track->id);
-    
+
         $response->assertOk();
         $this->assertEquals("kali",$updateTrack->title);
+    }
+     /**
+     * @test
+     */
+    public function itDeletesTrack(){
+        $this->seed();
+
+        $track=Track::first();
+        $response = $this->delete('/api/Tracks/' .$track->id);
+        $response->assertNoContent();
+      $this->assertEquals(9, Track::count()); // we seed 10 in databaserseeder after delete 1 we must get 9
+
+
     }
     }

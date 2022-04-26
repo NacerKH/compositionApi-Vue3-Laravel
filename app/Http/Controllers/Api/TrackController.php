@@ -7,6 +7,7 @@ use App\Http\Resources\TrackResource;
 use App\Models\Track;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
+use Illuminate\Http\Response;
 
 class TrackController extends Controller
 {
@@ -85,8 +86,9 @@ class TrackController extends Controller
      * @param  \App\Models\Track  $track
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Track $track)
-    {
-        //
+    public function destroy(Track $track, $id):Response
+{
+        $track->find($id)->delete();
+        return response()->noContent();
     }
 }

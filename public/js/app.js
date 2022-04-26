@@ -24551,34 +24551,70 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
-/* harmony import */ var _services_trackservices__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/trackservices */ "./resources/js/services/trackservices.js");
-/* harmony import */ var _heroicons_vue_solid__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @heroicons/vue/solid */ "./node_modules/@heroicons/vue/solid/esm/MusicNoteIcon.js");
-/* harmony import */ var _heroicons_vue_solid__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @heroicons/vue/solid */ "./node_modules/@heroicons/vue/solid/esm/PhotographIcon.js");
-/* harmony import */ var _heroicons_vue_solid__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @heroicons/vue/solid */ "./node_modules/@heroicons/vue/solid/esm/CheckCircleIcon.js");
-/* harmony import */ var _heroicons_vue_solid__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @heroicons/vue/solid */ "./node_modules/@heroicons/vue/solid/esm/DocumentTextIcon.js");
-/* harmony import */ var _heroicons_vue_solid__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @heroicons/vue/solid */ "./node_modules/@heroicons/vue/solid/esm/HeartIcon.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var _services_trackservices__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/trackservices */ "./resources/js/services/trackservices.js");
+/* harmony import */ var _heroicons_vue_solid__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @heroicons/vue/solid */ "./node_modules/@heroicons/vue/solid/esm/MusicNoteIcon.js");
+/* harmony import */ var _heroicons_vue_solid__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @heroicons/vue/solid */ "./node_modules/@heroicons/vue/solid/esm/PhotographIcon.js");
+/* harmony import */ var _heroicons_vue_solid__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @heroicons/vue/solid */ "./node_modules/@heroicons/vue/solid/esm/CheckCircleIcon.js");
+/* harmony import */ var _heroicons_vue_solid__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @heroicons/vue/solid */ "./node_modules/@heroicons/vue/solid/esm/DocumentTextIcon.js");
+/* harmony import */ var _heroicons_vue_solid__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @heroicons/vue/solid */ "./node_modules/@heroicons/vue/solid/esm/HeartIcon.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
-    MusicNoteIcon: _heroicons_vue_solid__WEBPACK_IMPORTED_MODULE_2__["default"],
-    PhotographIcon: _heroicons_vue_solid__WEBPACK_IMPORTED_MODULE_3__["default"],
-    CheckCircleIcon: _heroicons_vue_solid__WEBPACK_IMPORTED_MODULE_4__["default"],
-    DocumentTextIcon: _heroicons_vue_solid__WEBPACK_IMPORTED_MODULE_5__["default"],
-    HeartIcon: _heroicons_vue_solid__WEBPACK_IMPORTED_MODULE_6__["default"]
+    MusicNoteIcon: _heroicons_vue_solid__WEBPACK_IMPORTED_MODULE_3__["default"],
+    PhotographIcon: _heroicons_vue_solid__WEBPACK_IMPORTED_MODULE_4__["default"],
+    CheckCircleIcon: _heroicons_vue_solid__WEBPACK_IMPORTED_MODULE_5__["default"],
+    DocumentTextIcon: _heroicons_vue_solid__WEBPACK_IMPORTED_MODULE_6__["default"],
+    HeartIcon: _heroicons_vue_solid__WEBPACK_IMPORTED_MODULE_7__["default"]
   },
   setup: function setup() {
     //composition Api  less code in component
-    var _useTracks = (0,_services_trackservices__WEBPACK_IMPORTED_MODULE_1__["default"])(),
+    var _useTracks = (0,_services_trackservices__WEBPACK_IMPORTED_MODULE_2__["default"])(),
         getTracks = _useTracks.getTracks,
-        tracks = _useTracks.tracks;
+        tracks = _useTracks.tracks,
+        destroyTrack = _useTracks.destroyTrack;
 
-    (0,vue__WEBPACK_IMPORTED_MODULE_0__.onMounted)(getTracks);
+    (0,vue__WEBPACK_IMPORTED_MODULE_1__.onMounted)(getTracks);
+
+    var deleteTrack = /*#__PURE__*/function () {
+      var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(id) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return destroyTrack(id);
+
+              case 2:
+                return _context.abrupt("return", _context.sent);
+
+              case 3:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }));
+
+      return function deleteTrack(_x) {
+        return _ref.apply(this, arguments);
+      };
+    }();
+
     return {
       tracks: tracks,
-      getTracks: getTracks
+      getTracks: getTracks,
+      deleteTrack: deleteTrack
     };
   }
 });
@@ -24933,6 +24969,7 @@ var _hoisted_37 = {
 
 var _hoisted_38 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Edit");
 
+var _hoisted_39 = ["onClick"];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
 
@@ -25007,7 +25044,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           id: track.id
         }
       },
-      "class": "bg-orange-400 hover:underline hover:bg-orange-700 hover:text-black rounded py-1 px-1 mb-4 text-white"
+      "class": "bg-orange-400 hover:underline hover:bg-orange-700 hover:text-black rounded py-2 px-1 mb-4 text-white"
     }, {
       "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
         return [_hoisted_38];
@@ -25017,7 +25054,14 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
     }, 1032
     /* PROPS, DYNAMIC_SLOTS */
-    , ["to"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("\r\n                      <a\r\n                        href=\"#\"\r\n                        class=\"text-blue-600 dark:text-blue-500 hover:underline\"\r\n                        >Edit</a ")])]);
+    , ["to"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("\n                      <a\n                        href=\"#\"\n                        class=\"text-blue-600 dark:text-blue-500 hover:underline\"\n                        >Edit</a "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+      "class": "bg-red-400 hover:bg-red-700 text-white rounded py-2 px-1 m-1",
+      onClick: function onClick($event) {
+        return $setup.deleteTrack(track.id);
+      }
+    }, " Delete", 8
+    /* PROPS */
+    , _hoisted_39)])]);
   }), 128
   /* KEYED_FRAGMENT */
   ))])])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Pagination, {
@@ -25769,6 +25813,40 @@ function useTracks() {
     };
   }();
 
+  var destroyTrack = /*#__PURE__*/function () {
+    var _ref6 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee6(id) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee6$(_context6) {
+        while (1) {
+          switch (_context6.prev = _context6.next) {
+            case 0:
+              if (window.confirm('Are u sure !')) {
+                _context6.next = 2;
+                break;
+              }
+
+              return _context6.abrupt("return");
+
+            case 2:
+              _context6.next = 4;
+              return axios__WEBPACK_IMPORTED_MODULE_1___default()["delete"]('/api/Tracks/' + id);
+
+            case 4:
+              _context6.next = 6;
+              return getTracks();
+
+            case 6:
+            case "end":
+              return _context6.stop();
+          }
+        }
+      }, _callee6);
+    }));
+
+    return function destroyTrack(_x5) {
+      return _ref6.apply(this, arguments);
+    };
+  }();
+
   function handleImageSelected(event) {
     if (event.target.files.length === 0) {
       imageFile.value = "";
@@ -25801,7 +25879,8 @@ function useTracks() {
     track: track,
     editTrack: editTrack,
     getTrack: getTrack,
-    UpdateTracks: UpdateTracks
+    UpdateTracks: UpdateTracks,
+    destroyTrack: destroyTrack
   };
 }
 

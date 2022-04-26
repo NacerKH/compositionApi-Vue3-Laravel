@@ -249,12 +249,13 @@
                         whitespace-wrap
                       "
                     >
-    <router-link  :to="{name:'tracks.edit',params:{id:track.id}}" class="bg-orange-400  hover:underline hover:bg-orange-700 hover:text-black rounded py-1 px-1 mb-4 text-white ">Edit</router-link>
+    <router-link  :to="{name:'tracks.edit',params:{id:track.id}}" class="bg-orange-400  hover:underline hover:bg-orange-700 hover:text-black rounded py-2 px-1 mb-4 text-white ">Edit</router-link>
 <!--
                       <a
                         href="#"
                         class="text-blue-600 dark:text-blue-500 hover:underline"
                         >Edit</a -->
+         <button class="bg-red-400 hover:bg-red-700 text-white rounded py-2 px-1 m-1" @click="deleteTrack(track.id)">  Delete</button>
 
                     </td>
                   </tr>
@@ -284,11 +285,15 @@ import { MusicNoteIcon, PhotographIcon, CheckCircleIcon,DocumentTextIcon, HeartI
 export default {
   components: {MusicNoteIcon,PhotographIcon,CheckCircleIcon,DocumentTextIcon, HeartIcon},
       setup() {  //composition Api  less code in component
-    const { getTracks, tracks } = useTracks();
-    onMounted(getTracks);
 
+    const { getTracks, tracks,destroyTrack } = useTracks();
+    onMounted(getTracks);
+  const  deleteTrack=async(id)=>{
+  return    await destroyTrack(id);
+  }
     return {
-      tracks,getTracks
+      tracks,getTracks,
+      deleteTrack
     };
   },
 };
