@@ -40,7 +40,7 @@ class TrackControllerTest extends TestCase
         ]);
         $tracks=Track::all();
         $track=Track::first();
-        $response->assertOk();
+        $response->assertStatus(201);
         $this->assertEquals(1, $tracks->count());
         $this->assertEquals('alain khalifa',$track->title);
     }
@@ -54,9 +54,9 @@ class TrackControllerTest extends TestCase
             'description'=> '',
             'image'=> '',
             'audio'=> '',
-            'is_favourite'=>'',
+
         ]);
-        $response->assertSessionHasErrors(['title','description','is_favourite']);
+        $response->assertSessionHasErrors(['title','description']);
      }
     /**
      * @test

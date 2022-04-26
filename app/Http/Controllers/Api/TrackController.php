@@ -27,7 +27,7 @@ class TrackController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request):TrackResource
     {
          $request->validate(
              [
@@ -35,16 +35,17 @@ class TrackController extends Controller
                  'description'=>'required',
                 //  'image'=>'required',
                 //  'audio'=>'required',
-                 'is_favourite'=>'required',
+                 'is_favourite'=>'nullable',
              ]
              );
-        Track::create([
+       $track= Track::create([
             'title'=>$request->title,
             'description'=>$request->description,
             'image'=>$request->image,
             'audio'=>$request->audio,
-            'is_favourite'=>$request->is_favourite,
+            'is_favourite'=>$request->is_favourite ?? 0,
         ]);
+        return new TrackResource($track);
     }
 
     /**
@@ -53,7 +54,7 @@ class TrackController extends Controller
      * @param  \App\Models\Track  $track
      * @return \Illuminate\Http\Response
      */
-    public function show(Track $track,$id)
+    public function show(Track $track,$id):TrackResource
     {      $track=Track::find($id);
         return TrackResource::make($track);
 
@@ -66,7 +67,7 @@ class TrackController extends Controller
      * @param  \App\Models\Track  $track
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Track $track,$id)
+    public function update(Request $request, Track $track,$id):TrackResource
     {
         $request->validate(
             [
@@ -74,10 +75,11 @@ class TrackController extends Controller
                 'description'=>'required',
                //  'image'=>'required',
                //  'audio'=>'required',
-                'is_favourite'=>'required',
+                'is_favourite'=>'nullable',
             ]);
             $track=Track::find($id);
             $track->update($request->only(['title','description','is_favourite']));
+            return new TrackResource($track);
     }
 
     /**
