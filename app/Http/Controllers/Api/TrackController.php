@@ -65,9 +65,18 @@ class TrackController extends Controller
      * @param  \App\Models\Track  $track
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Track $track)
+    public function update(Request $request, Track $track,$id)
     {
-        //
+        $request->validate(
+            [
+                'title'=>'required',
+                'description'=>'required',
+               //  'image'=>'required',
+               //  'audio'=>'required',
+                'is_favourite'=>'required',
+            ]);
+            $track=Track::find($id);
+            $track->update($request->only(['title','description','is_favourite']));
     }
 
     /**

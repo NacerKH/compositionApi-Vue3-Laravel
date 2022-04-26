@@ -68,6 +68,21 @@ class TrackControllerTest extends TestCase
     $response->assertOk();
      // dd(  $response->json('data'));
     $this->assertEquals($response->json('data')['id'],  $idFirsTrack );
-
+    }
+    /**
+     * @test
+     */
+    public function itUpdateTrack(){
+        $this->seed();
+        $track= Track::first();
+        $response= $this->put('/api/Tracks/'.$track->id,[
+            'title'=>"kali",
+            'description'=>'test',
+            'is_favourite'=>false,
+        ]);
+        $updateTrack=Track::find($track->id);
+    
+        $response->assertOk();
+        $this->assertEquals("kali",$updateTrack->title);
     }
     }
