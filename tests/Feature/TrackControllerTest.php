@@ -20,7 +20,8 @@ class TrackControllerTest extends TestCase
         $response = $this->get('/api/Tracks');
 
         $response->assertOk();
-         $this->assertCount(3,$response->json('data'));
+
+         $this->assertCount(3,$response->json('data'));  //3 Cause Pagination If I use get or all We test 10 count
         //  dd($response->json('data'));
          $this->assertNotNull($response->json('data')[0]['audio']);
         $this->assertIsBool($response->json('data')[0]['is_favourite']);
@@ -43,7 +44,7 @@ class TrackControllerTest extends TestCase
         $this->assertEquals(1, $tracks->count());
         $this->assertEquals('alain khalifa',$track->title);
     }
-      /**
+    /**
      * @test
      */
     public function itValidatesFields()
@@ -56,7 +57,17 @@ class TrackControllerTest extends TestCase
             'is_favourite'=>'',
         ]);
         $response->assertSessionHasErrors(['title','description','is_favourite']);
-
+     }
+    /**
+     * @test
+     */
+    public function itShowTrack(){
+        $this->seed();
+        $idFirsTrack= Track::first()->id;
+    $response = $this->get('/api/Tracks/'.$idFirsTrack);
+    $response->assertOk();
+     // dd(  $response->json('data'));
+    $this->assertEquals($response->json('data')['id'],  $idFirsTrack );
 
     }
-}
+    }
