@@ -28,7 +28,7 @@
     <form
         action=""
         class="bg-orange-200 hover:bg-orange-300 rounded space-y-6"
-        @submit.prevent="updateTrack"
+        @submit.prevent="saveTrack"
     >
         <div class="flex flex-col">
             <div
@@ -161,16 +161,17 @@ export default {
             imageUrl,
             handleImageSelected,
             errors,
+            UpdateTracks
         } = useTracks();
     onMounted(getTrack(props.id));
-        const updateTrack = async() => {
-            await editTrack(props.id);
+        const saveTrack = async() => {
+            await UpdateTracks(props.id);
 
         };
         return {
             getTrack,
             track,
-            editTrack,
+            saveTrack,
             handleImageSelected,
             imageUrl,
             message,

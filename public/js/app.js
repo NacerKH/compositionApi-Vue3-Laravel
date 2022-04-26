@@ -24742,18 +24742,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         imageFile = _useTracks.imageFile,
         imageUrl = _useTracks.imageUrl,
         handleImageSelected = _useTracks.handleImageSelected,
-        errors = _useTracks.errors;
+        errors = _useTracks.errors,
+        UpdateTracks = _useTracks.UpdateTracks;
 
     (0,vue__WEBPACK_IMPORTED_MODULE_1__.onMounted)(getTrack(props.id));
 
-    var updateTrack = /*#__PURE__*/function () {
+    var saveTrack = /*#__PURE__*/function () {
       var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return editTrack(props.id);
+                return UpdateTracks(props.id);
 
               case 2:
               case "end":
@@ -24763,7 +24764,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee);
       }));
 
-      return function updateTrack() {
+      return function saveTrack() {
         return _ref.apply(this, arguments);
       };
     }();
@@ -24771,7 +24772,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     return {
       getTrack: getTrack,
       track: track,
-      editTrack: editTrack,
+      saveTrack: saveTrack,
       handleImageSelected: handleImageSelected,
       imageUrl: imageUrl,
       message: message,
@@ -25016,7 +25017,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
     }, 1032
     /* PROPS, DYNAMIC_SLOTS */
-    , ["to"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("\n                      <a\n                        href=\"#\"\n                        class=\"text-blue-600 dark:text-blue-500 hover:underline\"\n                        >Edit</a ")])]);
+    , ["to"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("\r\n                      <a\r\n                        href=\"#\"\r\n                        class=\"text-blue-600 dark:text-blue-500 hover:underline\"\r\n                        >Edit</a ")])]);
   }), 128
   /* KEYED_FRAGMENT */
   ))])])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Pagination, {
@@ -25365,7 +25366,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     action: "",
     "class": "bg-orange-200 hover:bg-orange-300 rounded space-y-6",
     onSubmit: _cache[4] || (_cache[4] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
-      return _ctx.updateTrack && _ctx.updateTrack.apply(_ctx, arguments);
+      return $setup.saveTrack && $setup.saveTrack.apply($setup, arguments);
     }, ["prevent"]))
   }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [_hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     type: "text",
@@ -25721,6 +25722,53 @@ function useTracks() {
     };
   }();
 
+  var UpdateTracks = /*#__PURE__*/function () {
+    var _ref5 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee5(id) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee5$(_context5) {
+        while (1) {
+          switch (_context5.prev = _context5.next) {
+            case 0:
+              errors.value = '';
+              _context5.prev = 1;
+              _context5.next = 4;
+              return axios__WEBPACK_IMPORTED_MODULE_1___default().put('/api/Tracks/' + id, track.value);
+
+            case 4:
+              _context5.next = 6;
+              return _router_index_js__WEBPACK_IMPORTED_MODULE_3__["default"].push({
+                name: 'tracks.index'
+              });
+
+            case 6:
+              _context5.next = 12;
+              break;
+
+            case 8:
+              _context5.prev = 8;
+              _context5.t0 = _context5["catch"](1);
+
+              if (_context5.t0.response.status === 422) {
+                errors.value = _context5.t0.response.data.errors;
+              }
+
+              ;
+
+            case 12:
+              ;
+
+            case 13:
+            case "end":
+              return _context5.stop();
+          }
+        }
+      }, _callee5, null, [[1, 8]]);
+    }));
+
+    return function UpdateTracks(_x4) {
+      return _ref5.apply(this, arguments);
+    };
+  }();
+
   function handleImageSelected(event) {
     if (event.target.files.length === 0) {
       imageFile.value = "";
@@ -25752,7 +25800,8 @@ function useTracks() {
     errors: errors,
     track: track,
     editTrack: editTrack,
-    getTrack: getTrack
+    getTrack: getTrack,
+    UpdateTracks: UpdateTracks
   };
 }
 
