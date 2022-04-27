@@ -21,7 +21,7 @@ export default function useTracks() {
     };
 
     const getTracks = async (page = 1) => {
-        let response = await axios('/api/Tracks?page=' + page);
+        let response = await axios.get('/api/Tracks?page=' + page);
         tracks.value = response.data;
 
     };
@@ -85,7 +85,7 @@ export default function useTracks() {
                     console.log('RESULT', reader.result)
                      this.form.image = reader.result;
                      track.value.image=reader.result;
-                     
+
 
                     }
                      reader.readAsDataURL(file);

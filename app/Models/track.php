@@ -10,7 +10,7 @@ class Track extends Model
     use HasFactory;
     protected $casts =['is_favourite'=> 'boolean'];
     protected $fillable= ['title', 'description', 'image','audio','is_favourite'];
-    public $timestamps=false;
+    // public $timestamps=false;
 
     public function is_base64($str):bool
 {

@@ -19,7 +19,7 @@ class TrackController extends Controller
      */
     public function index():AnonymousResourceCollection
     {
-        return TrackResource::collection(Track::latest()->get());
+        return TrackResource::collection(Track::paginate(4));
     }
 
     /**

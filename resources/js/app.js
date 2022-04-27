@@ -11,12 +11,12 @@ import router from './router';
 import TrackIndex from './components/Tracks.vue';
 import TracksCreate from './components/TracksCreate.vue';
 import TracksEdit from './components/TracksEdit.vue';
-import LaravelVuePagination from 'laravel-vue-pagination';
+import Pagination  from 'laravel-vue-pagination';
 
 createApp({
     components:{
         TrackIndex,
-          'Pagination': LaravelVuePagination,
+        Pagination,
           TracksCreate,
           TracksEdit
     }
