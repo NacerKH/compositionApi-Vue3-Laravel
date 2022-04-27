@@ -24766,6 +24766,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   setup: function setup(props) {
     var message = (0,vue__WEBPACK_IMPORTED_MODULE_1__.ref)("");
     var images = (0,vue__WEBPACK_IMPORTED_MODULE_1__.ref)([]);
+    var form = (0,vue__WEBPACK_IMPORTED_MODULE_1__.reactive)({
+      image: ""
+    });
 
     var _useTracks = (0,_services_trackservices__WEBPACK_IMPORTED_MODULE_2__["default"])(),
         getTrack = _useTracks.getTrack,
@@ -24802,6 +24805,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     }();
 
     return {
+      form: form,
       getTrack: getTrack,
       track: track,
       saveTrack: saveTrack,
@@ -25408,7 +25412,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "class": "bg-orange-200 hover:bg-orange-300 rounded space-y-6",
     onSubmit: _cache[4] || (_cache[4] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
       return $setup.saveTrack && $setup.saveTrack.apply($setup, arguments);
-    }, ["prevent"]))
+    }, ["prevent"])),
+    enctype: "multipart/form-data"
   }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [_hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     type: "text",
     id: "title",
@@ -25624,7 +25629,7 @@ function useTracks() {
             case 3:
               response = _context.sent;
               track.value = response.data.data;
-              console.log(response);
+              console.log(response.data.data.image);
 
             case 6:
             case "end":
@@ -25849,6 +25854,7 @@ function useTracks() {
     var _this = this;
 
     var file = event.target.files[0];
+    console.log(file);
     var reader = new FileReader();
     errors.value = "";
 
@@ -25860,8 +25866,9 @@ function useTracks() {
 
     if (file['size'] < 2111775) {
       reader.onloadend = function (file) {
-        //console.log('RESULT', reader.result)
+        console.log('RESULT', reader.result);
         _this.form.image = reader.result;
+        track.value.image = reader.result;
       };
 
       reader.readAsDataURL(file);

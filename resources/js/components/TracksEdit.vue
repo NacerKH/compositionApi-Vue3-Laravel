@@ -28,7 +28,7 @@
     <form
         action=""
         class="bg-orange-200 hover:bg-orange-300 rounded space-y-6"
-        @submit.prevent="saveTrack"
+        @submit.prevent="saveTrack" enctype="multipart/form-data"
     >
         <div class="flex flex-col">
             <div
@@ -63,6 +63,7 @@
                 </div>
                 <div class="flex flex-1 shrink-0">
                     <input
+
                         type="file"
                         id="image"
                         name="image"
@@ -152,7 +153,11 @@ export default {
     setup(props) {
         let message = ref("");
         let images = ref([]);
+ const form = reactive({
 
+         image: "",
+
+        });
         const {
             getTrack,
             editTrack,
@@ -169,10 +174,11 @@ export default {
 
         };
         return {
+            form,
             getTrack,
             track,
             saveTrack,
-            handleImageSelected,
+          handleImageSelected,
             imageUrl,
             message,
             images,

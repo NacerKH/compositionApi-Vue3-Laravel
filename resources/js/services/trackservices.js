@@ -16,7 +16,7 @@ export default function useTracks() {
 
         let response = await axios.get('/api/Tracks/' + id);
         track.value = response.data.data;
-        console.log(response);
+        console.log(response.data.data.image);
 
     };
 
@@ -71,8 +71,9 @@ export default function useTracks() {
 
     function handleImageSelected(event) {
                 let file = event.target.files[0];
+                console.log(file);
                 let reader = new FileReader();
-            
+
                 errors.value ="";
                 if (file=== 0) {
                     imageFile.value = "";
@@ -81,8 +82,11 @@ export default function useTracks() {
                 if(file['size'] < 2111775)
                 {
                     reader.onloadend = (file) => {
-                    //console.log('RESULT', reader.result)
+                    console.log('RESULT', reader.result)
                      this.form.image = reader.result;
+                     track.value.image=reader.result;
+                     
+
                     }
                      reader.readAsDataURL(file);
                      imageFile.value =file;
