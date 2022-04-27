@@ -9,7 +9,7 @@
  .pagination-page-nav{
      border: 1px;
      border-radius: 1rem;
-     background-color: #1f2937;
+     background-color: #fb923c;
      padding: 1rem;
      --tw-text-opacity: 1;
      color:rgb(156 163 175 / var(--tw-text-opacity));
@@ -22,7 +22,10 @@
      padding-right: 1rem;
      border-width: 1px;
  }
+ .pagination-page-nav:hover{
+    background-color: #eba063d4;
+ }
  .active{
-    background-color: #666;
+    background-color: rgb(214, 190, 133);
     color: white;
  }

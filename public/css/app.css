@@ -1303,7 +1303,7 @@ select {
 .pagination-page-nav{
      border: 1px;
      border-radius: 1rem;
-     background-color: #1f2937;
+     background-color: #fb923c;
      padding: 1rem;
      --tw-text-opacity: 1;
      color:rgb(156 163 175 / var(--tw-text-opacity));
@@ -1316,8 +1316,11 @@ select {
      padding-right: 1rem;
      border-width: 1px;
  }
+.pagination-page-nav:hover{
+    background-color: #eba063d4;
+ }
 .active{
-    background-color: #666;
+    background-color: rgb(214, 190, 133);
     color: white;
  }
 .hover\:border-gray-300:hover {
@@ -1553,9 +1556,9 @@ select {
     background-color: rgb(255 237 213 / var(--tw-bg-opacity));
   }
 
-  .dark\:hover\:bg-gray-700:hover {
+  .dark\:hover\:bg-orange-400:hover {
     --tw-bg-opacity: 1;
-    background-color: rgb(55 65 81 / var(--tw-bg-opacity));
+    background-color: rgb(251 146 60 / var(--tw-bg-opacity));
   }
 
   .dark\:hover\:text-white:hover {

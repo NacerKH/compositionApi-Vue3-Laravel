@@ -168,7 +168,7 @@
                             <template #prev-nav>
                                 <a
                                     href="#"
-                                    class="inline-flex items-center py-2 px-4 mr-3 text-sm font-medium text-gray-500 bg-white rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                                    class="inline-flex items-center py-2 px-4 mr-3 text-sm font-medium text-gray-500 bg-orange-400 rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 hover:bg-orange-300 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-orange-400 dark:hover:text-white"
                                 >
                                     <svg
                                         class="mr-2 w-5 h-5"
@@ -188,7 +188,7 @@
                             <template #next-nav>
                                 <a
                                     href="#"
-                                    class="inline-flex items-center py-2 px-4 text-sm font-medium text-gray-500 bg-white rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                                    class="inline-flex items-center py-2 px-4 mr-3 text-sm font-medium text-gray-500 bg-orange-400 rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 hover:bg-orange-300 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-orange-400 dark:hover:text-white"
                                 >
                                     Next
                                     <svg
