@@ -2,6 +2,7 @@ import axios from "axios";
 import { ref, watch } from "vue";
 import router from '../router/index.js'
 
+
 export default function useTracks() {
     const tracks = ref([]);
     const errors = ref('');
@@ -57,6 +58,7 @@ export default function useTracks() {
             if (e.response.status === 422) {
 
                 errors.value = e.response.data.errors;
+                console.log(e.response.data.errors);
             };
         };
     };
@@ -68,15 +70,34 @@ export default function useTracks() {
     }
 
     function handleImageSelected(event) {
-        if (event.target.files.length === 0) {
-            imageFile.value = "";
-            imageUrl.value = "";
-            return;
+                let file = event.target.files[0];
+                let reader = new FileReader();
+            
+                errors.value ="";
+                if (file=== 0) {
+                    imageFile.value = "";
+                    imageUrl.value = "";
+                    return;}
+                if(file['size'] < 2111775)
+                {
+                    reader.onloadend = (file) => {
+                    //console.log('RESULT', reader.result)
+                     this.form.image = reader.result;
+                    }
+                     reader.readAsDataURL(file);
+                     imageFile.value =file;
+                }else{
+                    // alert('File size can not be bigger than 2 MB')
+                    errors.value ={image:['File size can not be bigger than 2 MB']};
+
+                }
+
+
         }
 
-        imageFile.value = event.target.files[0];
 
-    }
+
+
 
     watch(imageFile, (imageFile) => {
         if (!(imageFile instanceof File)) {

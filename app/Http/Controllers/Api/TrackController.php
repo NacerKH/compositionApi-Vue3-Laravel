@@ -8,7 +8,8 @@ use App\Models\Track;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Http\Response;
-
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 class TrackController extends Controller
 {
     /**
@@ -18,7 +19,7 @@ class TrackController extends Controller
      */
     public function index():AnonymousResourceCollection
     {
-        return TrackResource::collection(Track::OrderBy('created_at','DESC')->paginate(3));
+        return TrackResource::collection(Track::latest()->get());
     }
 
     /**
@@ -27,21 +28,30 @@ class TrackController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request):TrackResource
+    public function store(Request $request)
     {
          $request->validate(
              [
                  'title'=>'required',
                  'description'=>'required',
-                //  'image'=>'required',
+                 'image'=>'sometimes|base64dimensions:min_width=100,min_height=200|required',
                 //  'audio'=>'required',
                  'is_favourite'=>'nullable',
              ]
              );
-       $track= Track::create([
+
+        $image_64 = $request['image']; //your base64 encoded data
+        $extension = explode('/', explode(':', substr($image_64, 0, strpos($image_64, ';')))[1])[1];   // .jpg .png .pdf
+        $replace = substr($image_64, 0, strpos($image_64, ',')+1);
+        // find substring fro replace here eg: data:image/png;base64,
+        $image = str_replace($replace, '', $image_64);
+        $image = str_replace(' ', '+', $image);
+        $imageName = Str::random(10).'.'.$extension;
+         $file_path =Storage::disk('tracks')->put($imageName, base64_decode($image));
+        $track= Track::create([
             'title'=>$request->title,
             'description'=>$request->description,
-            'image'=>$request->image,
+            'image'=> '/storage/tracks/'.$imageName,
             'audio'=>$request->audio,
             'is_favourite'=>$request->is_favourite ?? 0,
         ]);

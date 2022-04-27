@@ -24679,10 +24679,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         imageFile = _useTracks.imageFile,
         imageUrl = _useTracks.imageUrl,
         handleImageSelected = _useTracks.handleImageSelected,
-        errors = _useTracks.errors; // let data = new FormData();
-    // data.append("image", imageFile.value);
-    // form.image=data;
-
+        errors = _useTracks.errors;
 
     var storeTrack = /*#__PURE__*/function () {
       var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
@@ -24695,9 +24692,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 2:
                 console.log(_objectSpread({}, form.image.value));
-                console.log(imageFile.value.name); // await createTracks();
 
-              case 4:
+              case 3:
               case "end":
                 return _context.stop();
             }
@@ -25216,7 +25212,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "class": "bg-orange-200 hover:bg-orange-300 rounded space-y-6",
     onSubmit: _cache[4] || (_cache[4] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
       return $setup.storeTrack && $setup.storeTrack.apply($setup, arguments);
-    }, ["prevent"]))
+    }, ["prevent"])),
+    enctype: "multipart/form-data"
   }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [_hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     type: "text",
     id: "title",
@@ -25793,6 +25790,7 @@ function useTracks() {
 
               if (_context5.t0.response.status === 422) {
                 errors.value = _context5.t0.response.data.errors;
+                console.log(_context5.t0.response.data.errors);
               }
 
               ;
@@ -25848,13 +25846,32 @@ function useTracks() {
   }();
 
   function handleImageSelected(event) {
-    if (event.target.files.length === 0) {
+    var _this = this;
+
+    var file = event.target.files[0];
+    var reader = new FileReader();
+    errors.value = "";
+
+    if (file === 0) {
       imageFile.value = "";
       imageUrl.value = "";
       return;
     }
 
-    imageFile.value = event.target.files[0];
+    if (file['size'] < 2111775) {
+      reader.onloadend = function (file) {
+        //console.log('RESULT', reader.result)
+        _this.form.image = reader.result;
+      };
+
+      reader.readAsDataURL(file);
+      imageFile.value = file;
+    } else {
+      // alert('File size can not be bigger than 2 MB')
+      errors.value = {
+        image: ['File size can not be bigger than 2 MB']
+      };
+    }
   }
 
   (0,vue__WEBPACK_IMPORTED_MODULE_2__.watch)(imageFile, function (imageFile) {

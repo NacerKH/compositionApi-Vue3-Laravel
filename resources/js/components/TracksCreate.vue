@@ -26,7 +26,7 @@
         action=""
         class="bg-orange-200 hover:bg-orange-300 rounded space-y-6"
         @submit.prevent="storeTrack"
-    >
+    enctype="multipart/form-data">
         <div class="flex flex-col">
             <div
                 class="flex text-orange-500 m-2 flex-wrap inline-flex items-center"
@@ -136,7 +136,7 @@ export default {
         HeartIcon,
     },
     setup() {
-    
+
         let images = ref([]);
         const form = reactive({
             title: "",
@@ -153,16 +153,12 @@ export default {
             handleImageSelected,
             errors,
         } = useTracks();
-        // let data = new FormData();
-        // data.append("image", imageFile.value);
-        // form.image=data;
 
-        const storeTrack = async () => {
+   const storeTrack = async () => {
             await createTracks({ ...form });
             console.log({ ...form.image.value });
-            console.log(imageFile.value.name);
-            // await createTracks();
-        };
+
+           };
         return {
             form,
             storeTrack,
