@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('description');
-            $table->string('image');
+            $table->string('image')->default('https://upload.wikimedia.org/wikipedia/commons/d/de/YouTube_Music_%282015-2017%29.png');
             $table->string('audio');
             $table->boolean('is_favourite')->default(false);
 

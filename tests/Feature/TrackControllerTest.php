@@ -21,7 +21,7 @@ class TrackControllerTest extends TestCase
 
         $response->assertOk();
 
-         $this->assertCount(3,$response->json('data'));  //3 Cause Pagination If I use get or all We test 10 count
+         $this->assertCount(4,$response->json('data'));  //4 Cause Pagination If I use get or all We test 10 count
         //  dd($response->json('data'));
          $this->assertNotNull($response->json('data')[0]['audio']);
         $this->assertIsBool($response->json('data')[0]['is_favourite']);
@@ -34,7 +34,7 @@ class TrackControllerTest extends TestCase
         $response= $this->post('/api/Tracks',[
             'title'=> 'alain khalifa',
             'description'=> 'description testing',
-            'image'=> 'kali for test image',
+            // 'image'=> 'https://via.placeholder.com/640x480.png/00ff99?text=cats+Faker+corrupti',
             'audio'=> 'kali for test audio',
             'is_favourite'=>true,
         ]);
@@ -79,6 +79,7 @@ class TrackControllerTest extends TestCase
             'title'=>"kali",
             'description'=>'test',
             'is_favourite'=>false,
+            'image'=>"test image"
         ]);
         $updateTrack=Track::find($track->id);
 
