@@ -116,7 +116,32 @@ export default function useTracks() {
             imageUrl.value = fileReader.result;
         });
     });
+        function uploadAudio(event){
+            let file = event.target.files[0];
+            console.log(file);
+            let reader = new FileReader();
 
+            errors.value ="";
+           
+            if(file['size'] < 2111775)
+            {
+                reader.onloadend = (file) => {
+                console.log('RESULT', reader.result)
+                 this.form.audio = reader.result;
+                 track.value.audio=reader.result;
+
+
+                }
+                 reader.readAsDataURL(file);
+
+            }else{
+                // alert('File size can not be bigger than 2 MB')
+                errors.value ={audio:['File size can not be bigger than 2 MB']};
+
+            }
+
+
+        }
 
     return {
         tracks,
@@ -130,7 +155,8 @@ export default function useTracks() {
         editTrack,
         getTrack,
         UpdateTracks,
-        destroyTrack
+        destroyTrack,
+        uploadAudio
 
     }
 }

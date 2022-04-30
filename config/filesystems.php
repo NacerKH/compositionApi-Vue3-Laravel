@@ -62,6 +62,13 @@ return [
             'visibility' => 'public',
             'throw' => false,
         ],
+        'tracksAudio' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/tracks/audios'),
+            'url' => env('APP_URL').'/storage',
+            'visibility' => 'public',
+            'throw' => false,
+        ],
 
     ],
 

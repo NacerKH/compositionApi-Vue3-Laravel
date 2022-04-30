@@ -88,7 +88,8 @@
                     type="file"
                     id="audio"
                     class="md:w-64 sm:w-32 rounded form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                />
+                accept=".mp3,audio/*"
+                                             v-on:change="uploadAudio"  />
             </div>
             <div
                 class="flex text-orange-500 m-2 flex-wrap inline-flex items-center"
@@ -151,18 +152,20 @@ export default {
             imageFile,
             imageUrl,
             handleImageSelected,
+            uploadAudio,
             errors,
         } = useTracks();
 
    const storeTrack = async () => {
             await createTracks({ ...form });
-            console.log({ ...form.image.value });
+           
 
            };
         return {
             form,
             storeTrack,
             handleImageSelected,
+            uploadAudio,
             imageUrl,
 
             images,
