@@ -24769,7 +24769,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     var message = (0,vue__WEBPACK_IMPORTED_MODULE_1__.ref)("");
     var images = (0,vue__WEBPACK_IMPORTED_MODULE_1__.ref)([]);
     var form = (0,vue__WEBPACK_IMPORTED_MODULE_1__.reactive)({
-      image: ""
+      image: "",
+      audio: ""
     });
 
     var _useTracks = (0,_services_trackservices__WEBPACK_IMPORTED_MODULE_2__["default"])(),
@@ -24780,7 +24781,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         imageUrl = _useTracks.imageUrl,
         handleImageSelected = _useTracks.handleImageSelected,
         errors = _useTracks.errors,
-        UpdateTracks = _useTracks.UpdateTracks;
+        UpdateTracks = _useTracks.UpdateTracks,
+        uploadAudio = _useTracks.uploadAudio;
 
     (0,vue__WEBPACK_IMPORTED_MODULE_1__.onMounted)(getTrack(props.id));
 
@@ -24815,7 +24817,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       imageUrl: imageUrl,
       message: message,
       images: images,
-      errors: errors
+      errors: errors,
+      uploadAudio: uploadAudio
     };
   }
 });
@@ -25408,24 +25411,21 @@ var _hoisted_14 = {
 };
 var _hoisted_15 = ["src"];
 var _hoisted_16 = ["src"];
-
-var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "flex text-orange-500 m-2 flex-wrap inline-flex items-center"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "class": "basis-1/3"
-}, "Audio :"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-  type: "file",
-  id: "audio",
-  "class": "md:w-64 sm:w-32 rounded form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-})], -1
-/* HOISTED */
-);
-
-var _hoisted_18 = {
+var _hoisted_17 = {
   "class": "flex text-orange-500 m-2 flex-wrap inline-flex items-center"
 };
 
-var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "class": "basis-1/3"
+}, "Audio :", -1
+/* HOISTED */
+);
+
+var _hoisted_19 = {
+  "class": "flex text-orange-500 m-2 flex-wrap inline-flex items-center"
+};
+
+var _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "flex-1"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
   "class": "basis-1/3"
@@ -25433,11 +25433,11 @@ var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_20 = {
+var _hoisted_21 = {
   "class": "flex-1"
 };
 
-var _hoisted_21 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_22 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "flex text-orange-500 justify-end flex-wrap"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
   "class": "py-1 px-2 bg-orange-400 hover:bg-orange-300 rounded text-white hover:text-black"
@@ -25470,7 +25470,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   })])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
     action: "",
     "class": "bg-orange-200 hover:bg-orange-300 rounded space-y-6",
-    onSubmit: _cache[4] || (_cache[4] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
+    onSubmit: _cache[5] || (_cache[5] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
       return $setup.saveTrack && $setup.saveTrack.apply($setup, arguments);
     }, ["prevent"])),
     enctype: "multipart/form-data"
@@ -25516,16 +25516,26 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "class": "w-30 h-20 object-contain"
   }, null, 8
   /* PROPS */
-  , _hoisted_16), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.imageUrl]])])]), _hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [_hoisted_19, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  , _hoisted_16), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.imageUrl]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [_hoisted_18, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "file",
+    id: "audio",
+    "class": "md:w-64 sm:w-32 rounded form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none",
+    accept: ".mp3,audio/*",
+    onChange: _cache[3] || (_cache[3] = function () {
+      return $setup.uploadAudio && $setup.uploadAudio.apply($setup, arguments);
+    })
+  }, null, 32
+  /* HYDRATE_EVENTS */
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_19, [_hoisted_20, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_21, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     type: "checkbox",
     id: "is_favourite",
     "class": "flex justify-end rounded form-checkbox h-5 w-5 text-gray-600",
-    "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
+    "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
       return $setup.track.is_favourite = $event;
     })
   }, null, 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelCheckbox, $setup.track.is_favourite]])])]), _hoisted_21])], 32
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelCheckbox, $setup.track.is_favourite]])])]), _hoisted_22])], 32
   /* HYDRATE_EVENTS */
   )], 64
   /* STABLE_FRAGMENT */

@@ -81,7 +81,7 @@ class TrackController extends Controller
     public function update(Request $request, Track $track, $id): TrackResource
     {
         $testIfImageBase64 = $track->is_base64($request->image); //check New image if new image it must be type base64
-        $testIfAudioBase64 = $track->is_base64($request->image); //check New audio if new audio it must be type base64
+        $testIfAudioBase64 = $track->is_base64($request->audio); //check New audio if new audio it must be type base64
 
 
         $request->validate(
@@ -107,7 +107,7 @@ class TrackController extends Controller
         }
 
         $track = Track::find($id);
-        $track->update(['title' => $request->title, 'description' => $request->description, 'is_favourite' => $request->is_favourite, 'image' => $testIfImageBase64 == true ? '/storage/tracks/' . $imageName : $request->image, 'audio' => $testIfAudioBase64 == true ? '/storage/tracks/audios/' . $audioName : $request->audio]);
+        $track->update(['title' => $request->title, 'description' => $request->description, 'is_favourite' => $request->is_favourite, 'image' => $testIfImageBase64 == true ? '/storage/tracks/' . $imageName : $request->image, 'audio' => $testIfAudioBase64  == true ? '/storage/tracks/audios/' . $audioName : $request->audio]);
         return new TrackResource($track);
     }
 

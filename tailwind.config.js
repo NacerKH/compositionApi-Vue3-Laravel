@@ -1,11 +1,9 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
-    // purge: [
-    //     './resources/**/*.blade.php',
-    //     './resources/**/*.js',
-
-    //   ],
+    purge: [     './resources/**/*.blade.php',
+  './resources/**/*.js',
+  './resources/**/*.vue',],
     darkMode:false,
     content: [
         './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
