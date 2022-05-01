@@ -23,7 +23,6 @@
     "dependencies": {
         "@heroicons/vue": "^1.0.6",
         "@tailwindcss/line-clamp": "^0.3.1",
-        "@vueuse/sound": "^1.1.7",
         "laravel-vue-pagination": "^3.0.0",
         "vue": "^3.2.31",
         "vue-loader": "^17.0.0",

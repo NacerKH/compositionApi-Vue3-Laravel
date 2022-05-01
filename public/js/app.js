@@ -24878,68 +24878,68 @@ var _hoisted_12 = {
   "class": "py-3 px-6 text-xs font-semibold tracking-wider text-left text-gray-700 uppercase dark:text-gray-400"
 };
 var _hoisted_13 = {
-  "class": "flex"
+  "class": "flex justify-center"
 };
 
 var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "flex-1"
+  "class": "flex justify-center"
 }, " description ", -1
 /* HOISTED */
 );
 
 var _hoisted_15 = {
-  "class": "flex-1"
+  "class": "flex justify-center"
 };
 var _hoisted_16 = {
   scope: "col",
   "class": "py-3 px-6 text-xs font-semibold tracking-wider text-left text-gray-700 uppercase dark:text-gray-400"
 };
 var _hoisted_17 = {
-  "class": "flex"
+  "class": "flex justify-center"
 };
 
 var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "flex-1"
+  "class": "flex justify-center"
 }, "picture", -1
 /* HOISTED */
 );
 
 var _hoisted_19 = {
-  "class": "flex-1"
+  "class": "flex justify-center"
 };
 var _hoisted_20 = {
   scope: "col",
   "class": "py-3 px-6 text-xs font-semibold tracking-wider text-left text-gray-700 uppercase dark:text-gray-400"
 };
 var _hoisted_21 = {
-  "class": "flex"
+  "class": "flex justify-center"
 };
 
 var _hoisted_22 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "flex-1"
+  "class": "flex justify-center"
 }, "audio", -1
 /* HOISTED */
 );
 
 var _hoisted_23 = {
-  "class": "flex-1"
+  "class": "flex justify-center"
 };
 var _hoisted_24 = {
   scope: "col",
   "class": "p-4 py-3 px-6 text-xs font-semibold tracking-wider text-left text-gray-700 uppercase dark:text-gray-400"
 };
 var _hoisted_25 = {
-  "class": "flex"
+  "class": "flex justify-center"
 };
 
 var _hoisted_26 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "flex-1"
+  "class": "flex justify-center"
 }, "favourite", -1
 /* HOISTED */
 );
 
 var _hoisted_27 = {
-  "class": "flex-1"
+  "class": "flex justify-center"
 };
 
 var _hoisted_28 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
@@ -24960,20 +24960,28 @@ var _hoisted_32 = {
   "class": "py-4 px-6 text-sm font-medium text-gray-900 whitespace-wrap dark:text-black"
 };
 var _hoisted_33 = ["src"];
-var _hoisted_34 = ["textContent"];
-var _hoisted_35 = {
+var _hoisted_34 = {
   "class": "py-4 px-6 text-sm font-medium text-gray-900 whitespace-wrap dark:text-white"
 };
-var _hoisted_36 = ["textContent"];
+var _hoisted_35 = {
+  controls: "",
+  "class": "w-44 w-fit",
+  preload: "none"
+};
+var _hoisted_36 = ["src"];
 var _hoisted_37 = {
+  "class": "py-4 px-6 text-sm font-medium text-gray-900 whitespace-wrap dark:text-white"
+};
+var _hoisted_38 = ["textContent"];
+var _hoisted_39 = {
   "class": "py-4 px-6 text-sm font-medium text-center whitespace-wrap"
 };
 
-var _hoisted_38 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Edit");
+var _hoisted_40 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Edit");
 
-var _hoisted_39 = ["onClick"];
+var _hoisted_41 = ["onClick"];
 
-var _hoisted_40 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+var _hoisted_42 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#",
   "class": "inline-flex items-center py-2 px-4 mr-3 text-sm font-medium text-gray-500 bg-orange-400 rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 hover:bg-orange-300 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-orange-400 dark:hover:text-white"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
@@ -24989,7 +24997,7 @@ var _hoisted_40 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_41 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+var _hoisted_43 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#",
   "class": "inline-flex items-center py-2 px-4 mr-3 text-sm font-medium text-gray-500 bg-orange-400 rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 hover:bg-orange-300 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-orange-400 dark:hover:text-white"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Next "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
@@ -25059,12 +25067,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       src: track.image
     }, null, 8
     /* PROPS */
-    , _hoisted_33)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", {
-      "class": "py-4 px-6 text-sm font-medium text-gray-900 whitespace-wrap dark:text-white line-clamp-2",
-      textContent: (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(track.audio)
+    , _hoisted_33)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_34, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("audio", _hoisted_35, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("source", {
+      src: track.audio,
+      type: "audio/mpeg"
     }, null, 8
     /* PROPS */
-    , _hoisted_34), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_35, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+    , _hoisted_36)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_37, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
       "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["px-2 inline-flex text-xs leading-5 font-semibold rounded-full", {
         'bg-green-100 text-green-800 hover:bg-green-500': track.is_favourite,
         'bg-red-100 text-red-800 hover:bg-red-500': !track.is_favourite
@@ -25072,7 +25080,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       textContent: (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(track.is_favourite)
     }, null, 10
     /* CLASS, PROPS */
-    , _hoisted_36)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_37, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+    , _hoisted_38)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_39, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
       to: {
         name: 'tracks.edit',
         params: {
@@ -25082,7 +25090,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       "class": "bg-orange-400 hover:underline hover:bg-orange-700 hover:text-black rounded py-2 px-1 mb-4 text-white"
     }, {
       "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-        return [_hoisted_38];
+        return [_hoisted_40];
       }),
       _: 2
       /* DYNAMIC */
@@ -25096,7 +25104,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       }
     }, " Delete ", 8
     /* PROPS */
-    , _hoisted_39)])]);
+    , _hoisted_41)])]);
   }), 128
   /* KEYED_FRAGMENT */
   ))])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Pagination, {
@@ -25105,10 +25113,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "class": "mt-1 bg-orange-300 inline-flex items-center justify-center -space-x-px w-full"
   }, {
     "prev-nav": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_40];
+      return [_hoisted_42];
     }),
     "next-nav": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_41];
+      return [_hoisted_43];
     }),
     _: 1
     /* STABLE */
@@ -25953,7 +25961,7 @@ function useTracks() {
     var reader = new FileReader();
     errors.value = "";
 
-    if (file['size'] < 2111775) {
+    if (file['size'] < 8011775) {
       reader.onloadend = function (file) {
         console.log('RESULT', reader.result);
         _this2.form.audio = reader.result;
@@ -25964,7 +25972,7 @@ function useTracks() {
     } else {
       // alert('File size can not be bigger than 2 MB')
       errors.value = {
-        audio: ['File size can not be bigger than 2 MB']
+        audio: ['File size can not be bigger than 8 MB']
       };
     }
   }

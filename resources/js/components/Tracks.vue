@@ -29,11 +29,11 @@
                                         scope="col"
                                         class="py-3 px-6 text-xs font-semibold tracking-wider text-left text-gray-700 uppercase dark:text-gray-400"
                                     >
-                                        <div class="flex">
-                                            <div class="flex-1">
+                                        <div class="flex justify-center ">
+                                            <div class="flex justify-center">
                                                 description
                                             </div>
-                                            <div class="flex-1">
+                                            <div class="flex justify-center">
                                                 <DocumentTextIcon
                                                     class="h-4 w-5 text-blue-500 hover:text-blue-700"
                                                 />
@@ -44,9 +44,9 @@
                                         scope="col"
                                         class="py-3 px-6 text-xs font-semibold tracking-wider text-left text-gray-700 uppercase dark:text-gray-400"
                                     >
-                                        <div class="flex">
-                                            <div class="flex-1">picture</div>
-                                            <div class="flex-1">
+                                        <div class="flex justify-center">
+                                            <div class="flex justify-center">picture</div>
+                                            <div class="flex justify-center">
                                                 <PhotographIcon
                                                     class="h-4 w-5 text-blue-500 hover:text-blue-700"
                                                 />
@@ -57,9 +57,9 @@
                                         scope="col"
                                         class="py-3 px-6 text-xs font-semibold tracking-wider text-left text-gray-700 uppercase dark:text-gray-400"
                                     >
-                                        <div class="flex">
-                                            <div class="flex-1">audio</div>
-                                            <div class="flex-1">
+                                        <div class="flex justify-center ">
+                                            <div class="flex justify-center">audio</div>
+                                            <div class="flex justify-center">
                                                 <MusicNoteIcon
                                                     class="h-4 w-5 text-blue-500 hover:text-blue-700"
                                                 />
@@ -70,9 +70,9 @@
                                         scope="col"
                                         class="p-4 py-3 px-6 text-xs font-semibold tracking-wider text-left text-gray-700 uppercase dark:text-gray-400"
                                     >
-                                        <div class="flex">
-                                            <div class="flex-1">favourite</div>
-                                            <div class="flex-1">
+                                        <div class="flex justify-center">
+                                            <div class="flex justify-center">favourite</div>
+                                            <div class="flex justify-center">
                                                 <HeartIcon
                                                     class="h-4 w-5 text-blue-500 hover:text-blue-700"
                                                 />
@@ -115,9 +115,14 @@
                                             />
                                         </td>
                                         <td
-                                            class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-wrap dark:text-white line-clamp-2"
-                                            v-text="track.audio"
-                                        ></td>
+                                            class="py-4 px-6 text-sm font-medium  text-gray-900 whitespace-wrap dark:text-white "
+
+                                        >
+                                        <audio controls class="w-44  w-fit" preload="none">
+                                            <source :src="track.audio" type="audio/mpeg">
+                                        </audio>
+
+                                            </td>
                                         <td
                                             class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-wrap dark:text-white"
                                         >
@@ -216,7 +221,6 @@
 <script>
 import { onMounted } from "vue";
 import useTracks from "../services/trackservices";
-
 import {
     MusicNoteIcon,
     PhotographIcon,
@@ -235,10 +239,10 @@ export default {
         HeartIcon,
         Pagination,
     },
-    setup() {
+     setup() {
         //composition Api  less code in component
 
-        const { getTracks, tracks, destroyTrack } = useTracks();
+        const { getTracks, tracks, destroyTrack} = useTracks();
         onMounted(getTracks);
         const deleteTrack = async (id) => {
             return await destroyTrack(id);

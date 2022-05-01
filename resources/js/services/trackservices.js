@@ -122,8 +122,8 @@ export default function useTracks() {
             let reader = new FileReader();
 
             errors.value ="";
-           
-            if(file['size'] < 2111775)
+
+            if(file['size'] < 8011775)
             {
                 reader.onloadend = (file) => {
                 console.log('RESULT', reader.result)
@@ -136,7 +136,7 @@ export default function useTracks() {
 
             }else{
                 // alert('File size can not be bigger than 2 MB')
-                errors.value ={audio:['File size can not be bigger than 2 MB']};
+                errors.value ={audio:['File size can not be bigger than 8 MB']};
 
             }
 

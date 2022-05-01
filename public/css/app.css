@@ -736,6 +736,11 @@ select {
 .h-6 {
   height: 1.5rem;
 }
+.h-fit {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
 .min-h-screen {
   min-height: 100vh;
 }
@@ -762,6 +767,19 @@ select {
 }
 .w-48 {
   width: 12rem;
+}
+.w-fit {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.w-min {
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+}
+.w-44 {
+  width: 11rem;
 }
 .max-w-6xl {
   max-width: 72rem;
