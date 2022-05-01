@@ -24965,7 +24965,7 @@ var _hoisted_34 = {
 };
 var _hoisted_35 = {
   controls: "",
-  "class": "w-44 w-fit",
+  "class": "w-44 h-8",
   preload: "none"
 };
 var _hoisted_36 = ["src"];

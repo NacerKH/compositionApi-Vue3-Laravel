@@ -118,7 +118,7 @@
                                             class="py-4 px-6 text-sm font-medium  text-gray-900 whitespace-wrap dark:text-white "
 
                                         >
-                                        <audio controls class="w-44  w-fit" preload="none">
+                                        <audio controls class="w-44  h-8" preload="none">
                                             <source :src="track.audio" type="audio/mpeg">
                                         </audio>
 
