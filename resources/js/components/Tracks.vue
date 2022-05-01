@@ -156,7 +156,7 @@
                         >Edit</a -->
                                             <button
                                                 class="bg-red-400 hover:bg-red-700 text-white rounded py-2 px-1 m-1"
-                                                @click="deleteTrack(track.id)"
+                                               v-on:click="deleteTrack(track.id)"
                                             >
                                                 Delete
                                             </button>

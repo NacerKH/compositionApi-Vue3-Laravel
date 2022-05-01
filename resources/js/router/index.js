@@ -1,10 +1,17 @@
 import {createRouter,createWebHistory} from 'vue-router';
+import Home from '../components/Home.vue'
 import TracksIndex from '../components/Tracks.vue'
 import TracksCreate from '../components/TracksCreate.vue'
 import TracksEdit from '../components/TracksEdit.vue'
 
 const routes=[
     {
+        path: '',
+        name:'home',
+        component : Home,
+        },
+
+        {
     path: '/dashboard',
     name:'tracks.index',
     component : TracksIndex,
