@@ -31,22 +31,24 @@ class TrackController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request): TrackResource
+    public function store(Request $request, Track $track): TrackResource
     {
         $request->validate(
             [
                 'title' => 'required',
                 'description' => 'required',
-                'image' => 'sometimes|base64dimensions:min_width=100,min_height=200',
+                'image' => 'required',
                   'audio'=>'required',
                 'is_favourite' => 'nullable',
             ]
         );
+        $testIfImageBase64 = $track->is_base64($request->image); //check New image if new image it must be type base64
+        $testIfAudioBase64 = $track->is_base64($request->audio); //check New audio if new audio it must be type base64
 
-        if ($request->image) {
+        if ($request->image && $testIfImageBase64) {
             $imageName = $this->uploadFile($request['image']);
         }
-        if ($request->audio) {
+        if ($request->audio && $testIfAudioBase64) {
             $audioName = $this->uploadFile($request['audio']);
         }
         $track = Track::create([
@@ -94,16 +96,11 @@ class TrackController extends Controller
                 'is_favourite' => 'nullable',
             ]
         );
-        if ($testIfImageBase64) {
-
-            if ($request->image) {
-                $imageName = $this->uploadFile($request['image']);
-            }
+        if ($request->image && $testIfImageBase64) {
+            $imageName = $this->uploadFile($request['image']);
         }
-        if ($testIfAudioBase64) {
-            if ($request->audio) {
-                $audioName = $this->uploadFile($request['audio']);
-            }
+        if ($request->audio && $testIfAudioBase64) {
+            $audioName = $this->uploadFile($request['audio']);
         }
 
         $track = Track::find($id);

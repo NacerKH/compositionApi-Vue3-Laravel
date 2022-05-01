@@ -34,7 +34,7 @@ class TrackControllerTest extends TestCase
         $response= $this->post('/api/Tracks',[
             'title'=> 'alain khalifa',
             'description'=> 'description testing',
-            // 'image'=> 'https://via.placeholder.com/640x480.png/00ff99?text=cats+Faker+corrupti',
+            'image'=> 'https://via.placeholder.com/640x480.png/00ff99?text=cats+Faker+corrupti',
             'audio'=> 'kali for test audio',
             'is_favourite'=>true,
         ]);
@@ -79,7 +79,8 @@ class TrackControllerTest extends TestCase
             'title'=>"kali",
             'description'=>'test',
             'is_favourite'=>false,
-            'image'=>"test image"
+            'image'=>"test image",
+            'audio'=>"test audio"
         ]);
         $updateTrack=Track::find($track->id);
 
