@@ -10,7 +10,7 @@
     </div>
 
     <div class="mx-auto">
-        <div class="flex flex-col">
+        <div class="flex flex-col ">
             <div class="overflow-x-auto shadow-md sm:rounded-lg">
                 <div class="inline-block w-full align-middle text-center">
                     <div class="overflow-hidden">
@@ -21,13 +21,13 @@
                                 <tr>
                                     <th
                                         scope="col"
-                                        class="py-3 px-6 text-xs font-semibold tracking-wider text-left text-gray-700 uppercase dark:text-gray-400"
+                                        class="py-3 px-6 text-xs  m-2 font-semibold tracking-wider text-left text-gray-700 uppercase dark:text-gray-400"
                                     >
                                         title
                                     </th>
                                     <th
                                         scope="col"
-                                        class="py-3 px-6 text-xs font-semibold tracking-wider text-left text-gray-700 uppercase dark:text-gray-400"
+                                        class="py-3 px-6 text-xs m-2 font-semibold tracking-wider text-left text-gray-700 uppercase dark:text-gray-400"
                                     >
                                         <div class="flex justify-center ">
                                             <div class="flex justify-center">
@@ -42,7 +42,7 @@
                                     </th>
                                     <th
                                         scope="col"
-                                        class="py-3 px-6 text-xs font-semibold tracking-wider text-left text-gray-700 uppercase dark:text-gray-400"
+                                        class="py-3 px-6  m-2  text-xs font-semibold tracking-wider text-left text-gray-700 uppercase dark:text-gray-400"
                                     >
                                         <div class="flex justify-center">
                                             <div class="flex justify-center">picture</div>
@@ -115,16 +115,16 @@
                                             />
                                         </td>
                                         <td
-                                            class="py-4 px-6 text-sm font-medium  text-gray-900 whitespace-wrap dark:text-white "
+                                            class="py-4  text-sm font-medium  text-gray-900 whitespace-wrap dark:text-white "  width="40%"
 
                                         >
-                                        <audio controls class="w-44  h-8" preload="none">
+                                        <audio controls class=" w-28 lg:w-44 md:w-36  h-8  sm:w-24 " preload="none">
                                             <source :src="track.audio" type="audio/mpeg">
                                         </audio>
 
                                             </td>
                                         <td
-                                            class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-wrap dark:text-white"
+                                            class="py-4 px-6  ml-2 text-sm font-medium text-gray-900 whitespace-wrap dark:text-white"
                                         >
                                             <span
                                                 class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full"

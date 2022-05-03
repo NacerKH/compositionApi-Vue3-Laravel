@@ -24560,7 +24560,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      slides: ["https://picsum.photos/id/1032/900/400", "https://picsum.photos/id/1033/900/400", "https://picsum.photos/id/1037/900/400", "https://picsum.photos/id/1035/900/400", "https://picsum.photos/id/1036/900/400"]
+      slides: ["/img/Banner1.jpg", "https://picsum.photos/id/1033/900/400", "https://picsum.photos/id/1037/900/400", "https://picsum.photos/id/1035/900/400", "https://picsum.photos/id/1036/900/400"]
     };
   }
 });
@@ -25088,14 +25088,14 @@ var _hoisted_10 = {
 
 var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
   scope: "col",
-  "class": "py-3 px-6 text-xs font-semibold tracking-wider text-left text-gray-700 uppercase dark:text-gray-400"
+  "class": "py-3 px-6 text-xs m-2 font-semibold tracking-wider text-left text-gray-700 uppercase dark:text-gray-400"
 }, " title ", -1
 /* HOISTED */
 );
 
 var _hoisted_12 = {
   scope: "col",
-  "class": "py-3 px-6 text-xs font-semibold tracking-wider text-left text-gray-700 uppercase dark:text-gray-400"
+  "class": "py-3 px-6 text-xs m-2 font-semibold tracking-wider text-left text-gray-700 uppercase dark:text-gray-400"
 };
 var _hoisted_13 = {
   "class": "flex justify-center"
@@ -25112,7 +25112,7 @@ var _hoisted_15 = {
 };
 var _hoisted_16 = {
   scope: "col",
-  "class": "py-3 px-6 text-xs font-semibold tracking-wider text-left text-gray-700 uppercase dark:text-gray-400"
+  "class": "py-3 px-6 m-2 text-xs font-semibold tracking-wider text-left text-gray-700 uppercase dark:text-gray-400"
 };
 var _hoisted_17 = {
   "class": "flex justify-center"
@@ -25181,16 +25181,17 @@ var _hoisted_32 = {
 };
 var _hoisted_33 = ["src"];
 var _hoisted_34 = {
-  "class": "py-4 px-6 text-sm font-medium text-gray-900 whitespace-wrap dark:text-white"
+  "class": "py-4 text-sm font-medium text-gray-900 whitespace-wrap dark:text-white",
+  width: "40%"
 };
 var _hoisted_35 = {
   controls: "",
-  "class": "w-44 h-8",
+  "class": "w-28 lg:w-44 md:w-36 h-8 sm:w-24",
   preload: "none"
 };
 var _hoisted_36 = ["src"];
 var _hoisted_37 = {
-  "class": "py-4 px-6 text-sm font-medium text-gray-900 whitespace-wrap dark:text-white"
+  "class": "py-4 px-6 ml-2 text-sm font-medium text-gray-900 whitespace-wrap dark:text-white"
 };
 var _hoisted_38 = ["textContent"];
 var _hoisted_39 = {
@@ -26461,7 +26462,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.carousel-control[data-v-2062a2ea] {\n  background-color: rgba(0, 0, 0, 0.5);\n  border: none;\n  display: inline-block;\n  position: absolute;\n  height: 50px;\n  width: 70px;\n  top: calc(50% - 25px);\n  color: #f3f3f3;\n  cursor: pointer;\n}\n.left[data-v-2062a2ea] {\n  left: 0;\n}\n.right[data-v-2062a2ea] {\n  right: 0;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.carousel-control[data-v-2062a2ea] {\n  background-color: rgba(0, 0, 0, 0.5);\n  border: none;\n  display: inline-block;\n  position: absolute;\n  height: 50px;\n  width: 70px;\n  top: calc(50% - 25px);\n  color: #f3f3f3;\n  cursor: pointer;\n}\n.left[data-v-2062a2ea] {\n  left: 0;\n}\n.right[data-v-2062a2ea] {\n  right: 0;\n}\n@media only screen and (max-width: 600px) {\n.carousel-control[data-v-2062a2ea] {\n    transform:translateY(calc(-60% - 6em));\n    height: 28px;\n    width:39px;\n}\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

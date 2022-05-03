@@ -20,11 +20,19 @@ export default {
   top: calc(50% - 25px);
   color: #f3f3f3;
   cursor: pointer;
+
 }
 .left {
   left: 0;
 }
 .right {
   right: 0;
+}
+@media only screen and (max-width: 600px) {
+   .carousel-control {
+    transform:translateY(calc(-60% - 6em));
+    height: 28px;
+    width:39px;
+}
 }
 </style>
