@@ -30,13 +30,9 @@
     </div>
 </div>
 
-            <div class="w-screen">
-                <div class="bg-white overflow-hidden shadow-sm ">
-                    <div class=" bg-white border-b border-gray-200">
+
                      <router-view />
-                    </div>
-                </div>
-            </div>
+               
 
 
 </x-guest-layout>

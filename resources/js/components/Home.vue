@@ -1,7 +1,26 @@
 
 
 <template>
-  <carousel :slides="slides" :interval="3000" controls indicators></carousel>
+
+
+
+
+<carousel :slides="slides" :interval="3000" controls indicators></carousel>
+
+
+
+
+
+<div class="relative  flex   bg-yellow-500 ">
+<div class="banner__layer flex "></div>
+</div>
+<div class="m-10 flex h-full bg-yellow-900 mx-auto container">
+    kali
+</div>
+
+
+
+
 </template>
 
 <script>
@@ -20,3 +39,16 @@ export default {
   }),
 };
 </script>
+<style scoped>
+.banner__layer {
+    position: absolute;
+    top: 0;
+    right: 0px;
+    transform: translateY(0%);
+    z-index: 10;
+    height: 30px ;
+    width: 100%;
+    background-image: linear-gradient(90deg, #964f1085, #713f12, #713f12, #964f1085);
+}
+
+</style>

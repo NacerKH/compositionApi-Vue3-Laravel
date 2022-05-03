@@ -33,7 +33,7 @@ export default {
 }
 .carousel-item img {
     width: 100%;
-    height: auto;
+       height: 400px;
 }
 .slide-in-enter-active,
 .slide-in-leave-active,
