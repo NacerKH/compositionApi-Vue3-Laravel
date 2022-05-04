@@ -1,6 +1,6 @@
 <x-guest-layout>
 
-        <div class="fixed top-0 z-50 bg-yellow-900  ">
+        <div class="fixed top-0 z-50 bg-yellow-900">
 
 
         <div class="relative  flex items-top h-14 bg-yellow-900 sm:items-center items-baseline	 py-4 sm:pt-0">

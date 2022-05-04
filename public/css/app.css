@@ -558,6 +558,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 1.5rem;
 }.w-52{
   width: 13rem;
+}.w-24{
+  width: 6rem;
 }.max-w-7xl{
   max-width: 80rem;
 }.flex-1{
@@ -725,9 +727,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }.bg-indigo-50{
   --tw-bg-opacity: 1;
   background-color: rgb(238 242 255 / var(--tw-bg-opacity));
-}.bg-yellow-500{
-  --tw-bg-opacity: 1;
-  background-color: rgb(234 179 8 / var(--tw-bg-opacity));
 }.bg-yellow-200{
   --tw-bg-opacity: 1;
   background-color: rgb(254 240 138 / var(--tw-bg-opacity));
@@ -1154,6 +1153,8 @@ Ensure the default browser behavior of the `hidden` attribute.
     display: flex;
   }.sm\:hidden{
     display: none;
+  }.sm\:h-20{
+    height: 5rem;
   }.sm\:w-24{
     width: 6rem;
   }.sm\:w-32{
@@ -1175,13 +1176,22 @@ Ensure the default browser behavior of the `hidden` attribute.
     padding-top: 0px;
   }.sm\:text-center{
     text-align: center;
+  }.sm\:text-sm{
+    font-size: 0.875rem;
+    line-height: 1.25rem;
   }
 }@media (min-width: 768px){.md\:mr-6{
     margin-right: 1.5rem;
+  }.md\:h-24{
+    height: 6rem;
   }.md\:w-36{
     width: 9rem;
   }.md\:w-64{
     width: 16rem;
+  }.md\:w-24{
+    width: 6rem;
+  }.md\:w-40{
+    width: 10rem;
   }.md\:px-6{
     padding-left: 1.5rem;
     padding-right: 1.5rem;
@@ -1194,9 +1204,14 @@ Ensure the default browser behavior of the `hidden` attribute.
     margin-bottom: 2rem;
   }.lg\:w-44{
     width: 11rem;
+  }.lg\:w-52{
+    width: 13rem;
   }.lg\:px-8{
     padding-left: 2rem;
     padding-right: 2rem;
+  }.lg\:text-2xl{
+    font-size: 1.5rem;
+    line-height: 2rem;
   }
 }
 
