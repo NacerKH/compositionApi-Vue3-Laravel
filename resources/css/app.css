@@ -1,6 +1,7 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
  .page-item{
     margin-top: 1rem;
     margin-bottom: 1rem;
