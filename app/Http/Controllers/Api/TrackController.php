@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\TrackResource;
+use App\Http\Traits\ListenAudio;
 use App\Http\Traits\UploadFile;
 use App\Models\Track;
 use Illuminate\Http\Request;
@@ -14,7 +15,7 @@ use Illuminate\Support\Str;
 
 class TrackController extends Controller
 {
-    use UploadFile;
+    use UploadFile, ListenAudio;
     /**
      * Display a listing of the resource.
      *
@@ -70,6 +71,17 @@ class TrackController extends Controller
     public function show(Track $track, $id): TrackResource
     {
         $track = Track::find($id);
+        $response=$this->listen($track->audio);
+        // info($response);
+    //     $t=$track->getDuration();
+    //     $e=$track->getDurationEstimate();
+    //    $k=$track->formatTime($t);
+    //    $a=$track->formatTime($e);
+    //    info($k);
+    //    info($e);
+    //    info($a);
+
+
         return TrackResource::make($track);
     }
 
