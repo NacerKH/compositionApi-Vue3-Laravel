@@ -3,6 +3,7 @@ import Home from '../components/Home.vue'
 import TracksIndex from '../components/Tracks.vue'
 import TracksCreate from '../components/TracksCreate.vue'
 import TracksEdit from '../components/TracksEdit.vue'
+import Preview from '../components/Preview.vue'
 
 const routes=[
     {
@@ -26,7 +27,13 @@ const routes=[
             name:'tracks.edit',
             props:true,
             component : TracksEdit,
-            }
+            },
+            {
+                path: '/track/:id/preview',
+                name:'preview',
+                props:true,
+                component : Preview,
+                }
 
 
 ];

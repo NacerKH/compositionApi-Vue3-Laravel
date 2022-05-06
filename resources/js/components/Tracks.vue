@@ -124,7 +124,7 @@
 
                                             </td>
                                         <td
-                                            class="py-4 px-6  ml-2 text-sm font-medium text-gray-900 whitespace-wrap dark:text-white"
+                                            class="py-4 px-6  ml-2 text-sm font-medium text-gray-900 whitespace-wrap dark:text-white flex-wrap"
                                         >
                                             <span
                                                 class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full"
@@ -139,27 +139,38 @@
                                         </td>
 
                                         <td
-                                            class="py-4 px-6 text-sm font-medium text-center whitespace-wrap"
-                                        >
+                                            class="py-4  flex flex-1 px-6 text-sm font-medium text-center whitespace-wrap flex-wrap"
+                                        >  <div class="flex flex-1 inline-flex items-center flex-wrap">
                                             <router-link
                                                 :to="{
                                                     name: 'tracks.edit',
                                                     params: { id: track.id },
                                                 }"
-                                                class="bg-orange-400 hover:underline hover:bg-orange-700 hover:text-black rounded py-2 px-1 mb-4 text-white"
+                                                class="bg-orange-400 flex flex-1  items-center hover:underline hover:bg-orange-700 hover:text-black rounded py-2 px-1 mb-4 text-white"
                                                 >Edit</router-link
                                             >
-                                            <!--
-                      <a
-                        href="#"
-                        class="text-blue-600 dark:text-blue-500 hover:underline"
-                        >Edit</a -->
-                                            <button
+                                                  <router-link
+                                                :to="{
+                                                    name: 'preview',
+                                                     params: { id: track.id },
+
+                                                }"
+                                                class="bg-gradient-to-r flex flex-1 ml-2 items-center from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 hover:text-black rounded py-2 px-1 mb-4 text-white"
+                                                >Preview
+                                                   <ViewBoardsIcon  class="h-4 w-5 text-blue-500 hover:text-blue-700"
+                                                />
+                                                </router-link>
+                                                 <div class="flex flex-1 justify-center items-center flex-wrap">
+
+                                         <button
                                                 class="bg-red-400 hover:bg-red-700 text-white rounded py-2 px-1 m-1"
                                                v-on:click="deleteTrack(track.id)"
                                             >
                                                 Delete
                                             </button>
+                                                 </div>
+
+                                            </div>
                                         </td>
                                     </tr>
                                 </template>
@@ -227,6 +238,7 @@ import {
     CheckCircleIcon,
     DocumentTextIcon,
     HeartIcon,
+    ViewBoardsIcon
 } from "@heroicons/vue/solid";
 import Pagination from "laravel-vue-pagination";
 
@@ -238,7 +250,14 @@ export default {
         DocumentTextIcon,
         HeartIcon,
         Pagination,
+         ViewBoardsIcon
     },
+    data(){
+        return {
+        sourceAudio:""
+
+        }
+      },
      setup() {
         //composition Api  less code in component
 

@@ -13,6 +13,8 @@ import TracksCreate from './components/TracksCreate.vue';
 import TracksEdit from './components/TracksEdit.vue';
 import Home from './components/Home.vue';
 import Pagination  from 'laravel-vue-pagination';
+import Preview from './components/Preview.vue'
+
 
 createApp({
     components:{
@@ -20,7 +22,8 @@ createApp({
         Pagination,
           TracksCreate,
           TracksEdit,
-          Home
+          Home,
+          Preview
     }
 })
 .use(router)
