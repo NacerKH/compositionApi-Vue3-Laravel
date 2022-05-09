@@ -23,7 +23,10 @@
     "dependencies": {
         "@heroicons/vue": "^1.0.6",
         "@tailwindcss/line-clamp": "^0.3.1",
+        "laravel-echo": "^1.11.7",
         "laravel-vue-pagination": "^3.0.0",
+        "pusher-js": "^7.1.0-beta",
+        "simple-peer": "^9.11.1",
         "vue": "^3.2.31",
         "vue-loader": "^17.0.0",
         "vue-router": "^4.0.13"
