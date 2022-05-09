@@ -14,5 +14,9 @@ class WebrtcStreamingController extends Controller
         return view('dashboard', ['type' => 'broadcaster', 'id' => Auth::id()]);
     }
 
+    public function consumer(Request $request, $streamId)
+    {
+        return view('dashboard', ['type' => 'consumer', 'streamId' => $streamId, 'id' => Auth::id()]);
+    }
 
 }
