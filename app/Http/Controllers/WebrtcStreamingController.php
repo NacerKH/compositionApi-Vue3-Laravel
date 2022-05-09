@@ -18,5 +18,12 @@ class WebrtcStreamingController extends Controller
     {
         return view('dashboard', ['type' => 'consumer', 'streamId' => $streamId, 'id' => Auth::id()]);
     }
+    public function makeStreamOffer(Request $request)
+    {
+        $data['broadcaster'] = $request->broadcaster;
+        $data['receiver'] = $request->receiver;
+        $data['offer'] = $request->offer;
 
+        event(new StreamOffer($data));
+    }
 }
