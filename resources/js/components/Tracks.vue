@@ -53,7 +53,7 @@
                                             </div>
                                         </div>
                                     </th>
-                                    <th
+                                    <!-- <th
                                         scope="col"
                                         class="py-3 px-6 text-xs font-semibold tracking-wider text-left text-gray-700 uppercase dark:text-gray-400"
                                     >
@@ -65,7 +65,7 @@
                                                 />
                                             </div>
                                         </div>
-                                    </th>
+                                    </th> -->
                                     <th
                                         scope="col"
                                         class="p-4 py-3 px-6 text-xs font-semibold tracking-wider text-left text-gray-700 uppercase dark:text-gray-400"
@@ -114,7 +114,7 @@
                                                 v-bind:src="track.image"
                                             />
                                         </td>
-                                        <td
+                                        <!-- <td
                                             class="py-4  text-sm font-medium  text-gray-900 whitespace-wrap dark:text-white "  width="40%"
 
                                         >
@@ -122,7 +122,7 @@
                                             <source :src="track.audio" type="audio/mpeg">
                                         </audio>
 
-                                            </td>
+                                            </td> -->
                                         <td
                                             class="py-4 px-6  ml-2 text-sm font-medium text-gray-900 whitespace-wrap dark:text-white flex-wrap"
                                         >
@@ -140,13 +140,13 @@
 
                                         <td
                                             class="py-4  flex flex-1 px-6 text-sm font-medium text-center whitespace-wrap flex-wrap"
-                                        >  <div class="flex flex-1 inline-flex items-center flex-wrap">
+                                        >  <div class="flex flex-1 inline-flex items-center flex-wrap justify-center">
                                             <router-link
                                                 :to="{
                                                     name: 'tracks.edit',
                                                     params: { id: track.id },
                                                 }"
-                                                class="bg-orange-400 flex flex-1  items-center hover:underline hover:bg-orange-700 hover:text-black rounded py-2 px-1 mb-4 text-white"
+                                                class="bg-orange-400 flex flex-1   justify-center items-center hover:underline hover:bg-orange-700 hover:text-black rounded py-2 px-1 mb-4 text-white"
                                                 >Edit</router-link
                                             >
                                                   <router-link
@@ -155,9 +155,9 @@
                                                      params: { id: track.id },
 
                                                 }"
-                                                class="bg-gradient-to-r flex flex-1 ml-2 items-center from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 hover:text-black rounded py-2 px-1 mb-4 text-white"
+                                                class="bg-gradient-to-r flex  flex-1   justify-center ml-2 items-center from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 hover:text-black rounded py-2 px-1 mb-4 text-white"
                                                 >Preview
-                                                   <ViewBoardsIcon  class="h-4 w-5 text-blue-500 hover:text-blue-700"
+                                                   <ViewBoardsIcon  class="h-4 w-5 text-blue-500   justify-center hover:text-blue-700"
                                                 />
                                                 </router-link>
                                                  <div class="flex flex-1 justify-center items-center flex-wrap">

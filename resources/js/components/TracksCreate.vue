@@ -54,12 +54,12 @@
                 />
             </div>
             <div
-                class="flex text-orange-500 m-2 flex-wrap inline-flex items-center shrink-0"
+                class="flex text-orange-500 m-2  flex-1 form-control   flex-wrap inline-flex items-center "
             >
-                <div class="flex flex-1 shrink-0">
+                <div class="flex flex-1 ">
                     <label class="basis-1/3 gap-6">Picture: </label>
                 </div>
-                <div class="flex flex-1 shrink-0">
+                <div class="flex flex-1  ">
                     <input
                         type="file"
                         id="image"
@@ -71,7 +71,7 @@
                 </div>
 
                 <div
-                    class="flex flex-1 justify-center items-center inline-flex"
+                    class="flex flex-1 justify-center items-center inline-flex flex-wrap"
                 >
                     <img
                         v-show="imageUrl"
@@ -81,13 +81,13 @@
                 </div>
             </div>
             <div
-                class="flex text-orange-500 m-2 flex-wrap inline-flex items-center"
+                class="flex flex-1 text-orange-500  m-2  form-control   flex-wrap inline-flex items-center"
             >
                 <label class="basis-1/3">Audio :</label>
                 <input
                     type="file"
                     id="audio"
-                    class="md:w-64 sm:w-32 rounded form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                    class="md:w-64 sm:w-32 rounded  block px-3  shrink-0 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                 accept=".mp3,audio/*"
                                              v-on:change="uploadAudio"  />
             </div>
@@ -158,7 +158,7 @@ export default {
 
    const storeTrack = async () => {
             await createTracks({ ...form });
-           
+
 
            };
         return {
