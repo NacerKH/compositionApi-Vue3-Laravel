@@ -26,4 +26,10 @@ class WebrtcStreamingController extends Controller
 
         event(new StreamOffer($data));
     }
+    public function makeStreamAnswer(Request $request)
+    {
+        $data['broadcaster'] = $request->broadcaster;
+        $data['answer'] = $request->answer;
+        event(new StreamAnswer($data));
+    }
 }
